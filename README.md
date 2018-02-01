@@ -1,2 +1,2 @@
-# CIT-260-Monzon (Elias es lindo) #ego
+# CIT-260 (Team Assignment)
 A java repository for CIT 260
