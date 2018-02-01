@@ -6,6 +6,7 @@
 package byui.cit260.oregontrail.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -17,8 +18,9 @@ public class Player implements Serializable{
     //Player attributes
     private String name;
     private String occupation;
+    private ArrayList<Game> games = new ArrayList<Game>();
     
-    //Name functions
+//Name functions
     public String getName() {
         return name;
     }
@@ -27,7 +29,7 @@ public class Player implements Serializable{
         this.name = name;
     }
     
-    //Occupation functions
+//Occupation functions
     public String getOccupation() {
         return occupation;
     }
@@ -36,6 +38,16 @@ public class Player implements Serializable{
         this.occupation = occupation;
     }
 
+ //List of game object functions
+    public ArrayList<Game> getGames() {
+        return games;
+    }
+
+    public void setGames(ArrayList<Game> games) {
+        this.games = games;
+    }
+    
+// Override Object properties by functions
     @Override
     public int hashCode() {
         int hash = 7;
