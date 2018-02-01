@@ -49,7 +49,7 @@ public class Player implements Serializable{
     public String toString() {
         return "Player{" + "name=" + name + ", occupation=" + occupation + '}';
     }
-    
+ 
 
     @Override
     public boolean equals(Object obj) {
