@@ -12,10 +12,10 @@ import java.io.Serializable;
 public class Wagon  implements Serializable{
    private  String fund;
    private String item;
-   private Double price; 
-   private Double travelDay;
+   private double price; 
+   private double travelDay;
 
-    public Wagon(String fund, String item, Double price, Double travelDay) {
+    public Wagon(String fund, String item, double price, double travelDay) {
         this.fund = fund;
         this.item = item;
         this.price = price;
@@ -38,19 +38,19 @@ public class Wagon  implements Serializable{
         this.item = item;
     }
 
-    public Double getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public Double getTravelDay() {
+    public double getTravelDay() {
         return travelDay;
     }
 
-    public void setTravelday(Double travelDay) {
+    public void setTravelday(double travelDay) {
         this.travelDay = travelDay;
     }
    
