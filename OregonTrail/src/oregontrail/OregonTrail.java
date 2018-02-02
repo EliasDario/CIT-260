@@ -17,9 +17,8 @@ public class OregonTrail {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Player test = new Player();
-        test.setName("Meu nome é test");
-        System.out.println(test.getName());
+        Player test = new Player("Test");
+        System.out.println(test.toString());
     }
     
 }

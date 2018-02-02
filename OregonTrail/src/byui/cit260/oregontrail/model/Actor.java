@@ -14,13 +14,15 @@ import java.util.Objects;
 public class Actor {
     
     private String name;
-    private int health;
+    private String healthStatus = "Health"; //Here will show if the actor are sick, heatlh, etc.
+    private String ocuppation; // I think that is better to put occupation here than in Player.
+    //private Point point; //Future class.
     private int Life;
 
-    public Actor() {
+    public Actor(String name, String ocuppation) {
+        this.name = name;
+        this.ocuppation = ocuppation;
     }
-
-    
     
     public String getName() {
         return name;
@@ -30,13 +32,29 @@ public class Actor {
         this.name = name;
     }
 
-    public int getHealth() {
-        return health;
+    public String getHealthStatus() {
+        return healthStatus;
     }
 
-    public void setHealth(int health) {
-        this.health = health;
+    public void setHealthStatus(String healthStatus) {
+        this.healthStatus = healthStatus;
     }
+
+    public String getOcuppation() {
+        return ocuppation;
+    }
+
+    public void setOcuppation(String ocuppation) {
+        this.ocuppation = ocuppation;
+    }
+
+    /*public Point getPoint() {
+        return point;
+    }
+
+    public void setPoint(Point point) {
+        this.point = point;
+    }*/
 
     public int getLife() {
         return Life;
@@ -48,20 +66,15 @@ public class Actor {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 71 * hash + Objects.hashCode(this.name);
-        hash = 71 * hash + this.health;
-        hash = 71 * hash + this.Life;
+        int hash = 7;
+        hash = 43 * hash + Objects.hashCode(this.name);
+        hash = 43 * hash + Objects.hashCode(this.healthStatus);
+        hash = 43 * hash + Objects.hashCode(this.ocuppation);
+//        hash = 43 * hash + Objects.hashCode(this.point);
+        hash = 43 * hash + this.Life;
         return hash;
     }
 
-    @Override
-    public String toString() {
-        return "Actor{" + "name=" + name + ", health=" + health + ", Life=" + Life + '}';
-    }
-
-    
-    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -74,17 +87,30 @@ public class Actor {
             return false;
         }
         final Actor other = (Actor) obj;
-        if (this.health != other.health) {
-            return false;
-        }
         if (this.Life != other.Life) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
+        if (!Objects.equals(this.healthStatus, other.healthStatus)) {
+            return false;
+        }
+        if (!Objects.equals(this.ocuppation, other.ocuppation)) {
+            return false;
+        }
+        /*if (!Objects.equals(this.point, other.point)) {
+            return false;
+        }*/
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Actor{" + "name=" + name + ", healthStatus=" + healthStatus + ", ocuppation=" + ocuppation + /*", point=" + point +*/ ", Life=" + Life + '}';
+    }
+    
+    
     
     
     
