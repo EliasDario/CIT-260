@@ -13,13 +13,13 @@ public class Wagon  implements Serializable{
    private  String fund;
    private String item;
    private Double price; 
-   private Double travelday;
+   private Double travelDay;
 
-    public Wagon(String fund, String item, Double price, Double travelday) {
+    public Wagon(String fund, String item, Double price, Double travelDay) {
         this.fund = fund;
         this.item = item;
         this.price = price;
-        this.travelday = travelday;
+        this.travelDay = travelDay;
     }
 
     public String getFund() {
@@ -46,12 +46,12 @@ public class Wagon  implements Serializable{
         this.price = price;
     }
 
-    public Double getTravelday() {
-        return travelday;
+    public Double getTravelDay() {
+        return travelDay;
     }
 
-    public void setTravelday(Double travelday) {
-        this.travelday = travelday;
+    public void setTravelday(Double travelDay) {
+        this.travelDay = travelDay;
     }
    
 }
