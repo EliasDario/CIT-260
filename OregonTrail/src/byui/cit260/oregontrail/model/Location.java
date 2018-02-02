@@ -9,7 +9,7 @@ import java.io.Serializable;
  *
  * @author lucia
  */
-public class Location {
+public class Location implements Serializable{
     
     private double row;
     private double column;

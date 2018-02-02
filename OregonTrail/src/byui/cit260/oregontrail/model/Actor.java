@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author lucia
  */
-public class Actor {
+public class Actor implements Serializable{
     
     private String name;
     private String healthStatus = "Health"; //Here will show if the actor are sick, heatlh, etc.

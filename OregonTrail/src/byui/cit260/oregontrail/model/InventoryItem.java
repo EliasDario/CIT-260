@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author lucia
  */
-public class InventoryItem {
+public class InventoryItem implements Serializable{
     
     private String inventoryType;
     private double quantityInStock;

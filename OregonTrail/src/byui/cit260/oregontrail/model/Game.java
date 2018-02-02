@@ -9,7 +9,7 @@ import java.io.Serializable;
  *
  * @author Amon Bernardo
  */
-public class Game {
+public class Game implements Serializable{
     public double totalTime;
     public Player player;
 
