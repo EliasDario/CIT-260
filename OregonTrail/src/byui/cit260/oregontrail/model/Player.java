@@ -17,8 +17,12 @@ public class Player implements Serializable{
     
     //Player attributes
     private String name;
-    private String occupation;
     private ArrayList<Game> games = new ArrayList<Game>();
+
+//Doing it in the constructor, the object instance require the name and occupation.
+    public Player(String name) {
+        this.name = name;
+    }
     
 //Name functions
     public String getName() {
@@ -29,15 +33,6 @@ public class Player implements Serializable{
         this.name = name;
     }
     
-//Occupation functions
-    public String getOccupation() {
-        return occupation;
-    }
-
-    public void setOccupation(String occupation) {
-        this.occupation = occupation;
-    }
-
  //List of game object functions
     public ArrayList<Game> getGames() {
         return games;
@@ -48,20 +43,19 @@ public class Player implements Serializable{
     }
     
 // Override Object properties by functions
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 83 * hash + Objects.hashCode(this.name);
-        hash = 83 * hash + Objects.hashCode(this.occupation);
+        hash = 37 * hash + Objects.hashCode(this.name);
+        hash = 37 * hash + Objects.hashCode(this.games);
         return hash;
-    
     }
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", occupation=" + occupation + '}';
+        return "Player{" + "name=" + name + ", games=" + games + '}';
     }
- 
 
     @Override
     public boolean equals(Object obj) {
@@ -78,10 +72,12 @@ public class Player implements Serializable{
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
-        if (!Objects.equals(this.occupation, other.occupation)) {
+        if (!Objects.equals(this.games, other.games)) {
             return false;
         }
         return true;
     }
+
+
   
 }
