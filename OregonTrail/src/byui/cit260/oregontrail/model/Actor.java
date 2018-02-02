@@ -6,7 +6,7 @@
 package byui.cit260.oregontrail.model;
 
 import java.util.Objects;
-
+import java.io.Serializable;
 /**
  *
  * @author lucia
