@@ -10,17 +10,17 @@ import java.io.Serializable;
  * @author Elías
  */
 public class ResourceScene implements Serializable {
-  private Double amount;  
+  private double amount;  
 
-    public ResourceScene(Double amount) {
+    public ResourceScene(double amount) {
         this.amount = amount;
     }
 
-    public Double getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(Double amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 
