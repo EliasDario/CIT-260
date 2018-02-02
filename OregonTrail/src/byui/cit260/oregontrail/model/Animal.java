@@ -11,9 +11,9 @@ import java.io.Serializable;
  */
 public class Animal implements Serializable {
 private String name;
-private Double pound;
+private double pound;
 
-    public Animal(String name, Double pound) {
+    public Animal(String name, double pound) {
         this.name = name;
         this.pound = pound;
     }
@@ -26,11 +26,11 @@ private Double pound;
         this.name = name;
     }
 
-    public Double getPound() {
+    public double getPound() {
         return pound;
     }
 
-    public void setPound(Double pound) {
+    public void setPound(double pound) {
         this.pound = pound;
     }
 
