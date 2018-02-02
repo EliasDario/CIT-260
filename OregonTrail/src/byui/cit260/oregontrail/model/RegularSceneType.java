@@ -12,15 +12,15 @@ import java.io.Serializable;
  */
 public class RegularSceneType implements Serializable{
     private String description;
-    private Double Travelday; 
+    private Double travelDay; 
     private String river;
     private String mountain;
     private String weather;
     private String month;
 
-    public RegularSceneType(String description, Double Travelday, String river, String mountain, String weather, String month) {
+    public RegularSceneType(String description, Double travelDay, String river, String mountain, String weather, String month) {
         this.description = description;
-        this.Travelday = Travelday;
+        this.travelDay = travelDay;
         this.river = river;
         this.mountain = mountain;
         this.weather = weather;
@@ -35,12 +35,12 @@ public class RegularSceneType implements Serializable{
         this.description = description;
     }
 
-    public Double getTravelday() {
-        return Travelday;
+    public Double getTravelDay() {
+        return travelDay;
     }
 
-    public void setTravelday(Double Travelday) {
-        this.Travelday = Travelday;
+    public void setTravelDay(Double travelDay) {
+        this.travelDay = travelDay;
     }
 
     public String getRiver() {
