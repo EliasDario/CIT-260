@@ -77,6 +77,4 @@ public class Animal implements Serializable{
     public String toString() {
         return "Animal{" + "name=" + name + ", pound=" + pound + ", regularSceneType=" + regularSceneType + '}';
     }
-    
-    
 }

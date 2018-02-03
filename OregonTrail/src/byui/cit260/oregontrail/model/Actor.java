@@ -18,7 +18,7 @@ public class Actor implements Serializable{
     private String healthStatus = "Health"; //Here will show if the actor are sick, heatlh, etc.
     private String ocuppation; // I think that is better to put occupation here than in Player.
     //private Point point; //Future class.
-    private int Life;
+    private int life;
     private Player player;
     private Game game;
     private ArrayList<Wagon> wagon = new ArrayList<Wagon>();
@@ -93,12 +93,12 @@ public class Actor implements Serializable{
         this.point = point;
     }*/
 
-    public int getLife() {
-        return Life;
+    public int getlife() {
+        return life;
     }
 
-    public void setLife(int Life) {
-        this.Life = Life;
+    public void setlife(int life) {
+        this.life = life;
     }
 
     @Override
@@ -108,7 +108,7 @@ public class Actor implements Serializable{
         hash = 43 * hash + Objects.hashCode(this.healthStatus);
         hash = 43 * hash + Objects.hashCode(this.ocuppation);
 //        hash = 43 * hash + Objects.hashCode(this.point);
-        hash = 43 * hash + this.Life;
+        hash = 43 * hash + this.life;
         return hash;
     }
 
@@ -124,7 +124,7 @@ public class Actor implements Serializable{
             return false;
         }
         final Actor other = (Actor) obj;
-        if (this.Life != other.Life) {
+        if (this.life != other.life) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {
@@ -144,7 +144,7 @@ public class Actor implements Serializable{
 
     @Override
     public String toString() {
-        return "Actor{" + "name=" + name + ", healthStatus=" + healthStatus + ", ocuppation=" + ocuppation + /*", point=" + point +*/ ", Life=" + Life + '}';
+        return "Actor{" + "name=" + name + ", healthStatus=" + healthStatus + ", ocuppation=" + ocuppation + /*", point=" + point +*/ ", life=" + life + '}';
     }
     
     

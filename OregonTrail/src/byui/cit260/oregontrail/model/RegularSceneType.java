@@ -14,6 +14,7 @@ import java.util.Objects;
  */
 public class RegularSceneType implements Serializable{
     private String description;
+
     private double Travelday; 
     private String river;
     private String mountain;
@@ -21,11 +22,13 @@ public class RegularSceneType implements Serializable{
     private String month;
     private ArrayList<Location>location = new ArrayList<Location>();
     private ArrayList<Animal> animal = new ArrayList<Animal>();
+    private int travelDay;
     
 
-    public RegularSceneType(String description, double Travelday, String river, String mountain, String weather, String month) {
+    public RegularSceneType(String description, int travelday, String river, String mountain, String weather, String month) {
+
         this.description = description;
-        this.Travelday = Travelday;
+        this.travelDay = travelday;
         this.river = river;
         this.mountain = mountain;
         this.weather = weather;
@@ -40,12 +43,15 @@ public class RegularSceneType implements Serializable{
         this.description = description;
     }
 
-    public double getTravelday() {
-        return Travelday;
+
+    public double getTravelDay() {
+        return travelDay;
+        
     }
 
     public void setTravelday(double Travelday) {
         this.Travelday = Travelday;
+
     }
 
     public String getRiver() {

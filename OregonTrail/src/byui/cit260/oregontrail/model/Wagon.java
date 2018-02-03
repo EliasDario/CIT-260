@@ -22,7 +22,7 @@ public class Wagon  implements Serializable{
         this.fund = fund;
         this.item = item;
         this.price = price;
-        this.travelday = travelday;
+        this.travelDay = travelDay;
     }
 
     public String getFund() {

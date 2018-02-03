@@ -11,11 +11,12 @@ import java.util.Objects;
  *
  * @author Elías
  */
+
 public class ResourceScene extends RegularSceneType implements Serializable {
     private int amount;
     private ArrayList<InventoryItem> inventoryItem = new ArrayList<InventoryItem>();
-    public ResourceScene(String description, double Travelday, String river, String mountain, String weather, String month) {
-        super(description, Travelday, river, mountain, weather, month);
+    public ResourceScene(String description, int travelDay, String river, String mountain, String weather, String month) {
+        super(description, travelDay, river, mountain, weather, month);
     }
 
     public int getAmount() {
@@ -67,7 +68,5 @@ public class ResourceScene extends RegularSceneType implements Serializable {
     public String toString() {
         return "ResourceScene{" + "amount=" + amount + ", inventoryItem=" + inventoryItem + '}';
     }
-    
-    
     
 }
