@@ -7,6 +7,7 @@ package byui.cit260.oregontrail.model;
 
 import java.util.Objects;
 import java.io.Serializable;
+import java.util.ArrayList;
 /**
  *
  * @author lucia
@@ -18,10 +19,46 @@ public class Actor implements Serializable{
     private String ocuppation; // I think that is better to put occupation here than in Player.
     //private Point point; //Future class.
     private int Life;
+    private Player player;
+    private Game game;
+    private ArrayList<Wagon> wagon = new ArrayList<Wagon>();
+    private Location location;
 
     public Actor(String name, String ocuppation) {
         this.name = name;
         this.ocuppation = ocuppation;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public ArrayList<Wagon> getWagon() {
+        return wagon;
+    }
+
+    public void setWagon(ArrayList<Wagon> wagon) {
+        this.wagon = wagon;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
     
     public String getName() {

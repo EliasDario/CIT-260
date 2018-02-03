@@ -15,11 +15,13 @@ public class Location implements Serializable{
     private double column;
     private double visited;
     private double amountRemaining;
-
-    public Location() {
+    private Map map;
+    private Actor[] actor = new Actor[5];
+    private RegularSceneType regularSceneType;
+    
+    public Location(Map map) {
+        this.map = map;
     }
-    
-    
 
     public double getRow() {
         return row;
@@ -53,6 +55,32 @@ public class Location implements Serializable{
         this.amountRemaining = amountRemaining;
     }
 
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public Actor[] getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor[] actor) {
+        this.actor = actor;
+    }
+
+    public RegularSceneType getRegularSceneType() {
+        return regularSceneType;
+    }
+
+    public void setRegularSceneType(RegularSceneType regularSceneType) {
+        this.regularSceneType = regularSceneType;
+    }
+    
+    
+
     @Override
     public int hashCode() {
         int hash = 5;
@@ -68,8 +96,6 @@ public class Location implements Serializable{
         return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", amountRemaining=" + amountRemaining + '}';
     }
 
-    
-    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

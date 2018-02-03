@@ -5,6 +5,8 @@
  */
 package byui.cit260.oregontrail.model;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Objects;
         
 /**
  *
@@ -12,13 +14,16 @@ import java.io.Serializable;
  */
 public class RegularSceneType implements Serializable{
     private String description;
-    private Double Travelday; 
+    private double Travelday; 
     private String river;
     private String mountain;
     private String weather;
     private String month;
+    private ArrayList<Location>location = new ArrayList<Location>();
+    private ArrayList<Animal> animal = new ArrayList<Animal>();
+    
 
-    public RegularSceneType(String description, Double Travelday, String river, String mountain, String weather, String month) {
+    public RegularSceneType(String description, double Travelday, String river, String mountain, String weather, String month) {
         this.description = description;
         this.Travelday = Travelday;
         this.river = river;
@@ -35,11 +40,11 @@ public class RegularSceneType implements Serializable{
         this.description = description;
     }
 
-    public Double getTravelday() {
+    public double getTravelday() {
         return Travelday;
     }
 
-    public void setTravelday(Double Travelday) {
+    public void setTravelday(double Travelday) {
         this.Travelday = Travelday;
     }
 
@@ -74,6 +79,81 @@ public class RegularSceneType implements Serializable{
     public void setMonth(String month) {
         this.month = month;
     }
+
+    public ArrayList<Location> getLocation() {
+        return location;
+    }
+
+    public void setLocation(ArrayList<Location> location) {
+        this.location = location;
+    }
+
+    public ArrayList<Animal> getAnimal() {
+        return animal;
+    }
+
+    public void setAnimal(ArrayList<Animal> animal) {
+        this.animal = animal;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 17 * hash + Objects.hashCode(this.description);
+        hash = 17 * hash + (int) (Double.doubleToLongBits(this.Travelday) ^ (Double.doubleToLongBits(this.Travelday) >>> 32));
+        hash = 17 * hash + Objects.hashCode(this.river);
+        hash = 17 * hash + Objects.hashCode(this.mountain);
+        hash = 17 * hash + Objects.hashCode(this.weather);
+        hash = 17 * hash + Objects.hashCode(this.month);
+        hash = 17 * hash + Objects.hashCode(this.location);
+        hash = 17 * hash + Objects.hashCode(this.animal);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final RegularSceneType other = (RegularSceneType) obj;
+        if (Double.doubleToLongBits(this.Travelday) != Double.doubleToLongBits(other.Travelday)) {
+            return false;
+        }
+        if (!Objects.equals(this.description, other.description)) {
+            return false;
+        }
+        if (!Objects.equals(this.river, other.river)) {
+            return false;
+        }
+        if (!Objects.equals(this.mountain, other.mountain)) {
+            return false;
+        }
+        if (!Objects.equals(this.weather, other.weather)) {
+            return false;
+        }
+        if (!Objects.equals(this.month, other.month)) {
+            return false;
+        }
+        if (!Objects.equals(this.location, other.location)) {
+            return false;
+        }
+        if (!Objects.equals(this.animal, other.animal)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "RegularSceneType{" + "description=" + description + ", Travelday=" + Travelday + ", river=" + river + ", mountain=" + mountain + ", weather=" + weather + ", month=" + month + ", location=" + location + ", animal=" + animal + '}';
+    }
+
     
 }
 

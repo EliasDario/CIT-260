@@ -6,6 +6,7 @@
 package byui.cit260.oregontrail.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -17,12 +18,12 @@ public class InventoryItem implements Serializable{
     private String inventoryType;
     private double quantityInStock;
     private double requiredAmount;
+    private Game game;
+    private ArrayList<ResourceScene> resourceScene = new ArrayList<ResourceScene>();
 
     public InventoryItem() {
     }
     
-    
-
     public String getInventoryType() {
         return inventoryType;
     }
@@ -47,6 +48,22 @@ public class InventoryItem implements Serializable{
         this.requiredAmount = requiredAmount;
     }
 
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public ArrayList<ResourceScene> getResourceScene() {
+        return resourceScene;
+    }
+
+    public void setResourceScene(ArrayList<ResourceScene> resourceScene) {
+        this.resourceScene = resourceScene;
+    }
+
     @Override
     public int hashCode() {
         int hash = 3;
@@ -59,9 +76,7 @@ public class InventoryItem implements Serializable{
     @Override
     public String toString() {
         return "InventoryItem{" + "inventoryType=" + inventoryType + ", quantityInStock=" + quantityInStock + ", requiredAmount=" + requiredAmount + '}';
-    }
-
-    
+    }    
     
     @Override
     public boolean equals(Object obj) {

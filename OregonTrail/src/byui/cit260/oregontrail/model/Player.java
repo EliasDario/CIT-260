@@ -18,7 +18,8 @@ public class Player implements Serializable{
     //Player attributes
     private String name;
     private ArrayList<Game> games = new ArrayList<Game>();
-
+    private Actor[] actor = new Actor[5];
+    
 //Doing it in the constructor, the object instance require the name and occupation.
     public Player(String name) {
         this.name = name;
@@ -41,6 +42,15 @@ public class Player implements Serializable{
     public void setGames(ArrayList<Game> games) {
         this.games = games;
     }
+
+    public Actor[] getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor[] actor) {
+        this.actor = actor;
+    }
+    
     
 // Override Object properties by functions
 

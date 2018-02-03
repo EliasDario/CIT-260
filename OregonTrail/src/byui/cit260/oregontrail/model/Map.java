@@ -20,6 +20,7 @@ public class Map implements Serializable{
     private double rowCount;
     private double columnCount;
     private ArrayList<Game> games = new ArrayList<Game>();
+    private Location location;
 
 
     public Map() {
@@ -57,6 +58,14 @@ public class Map implements Serializable{
     public void setGames(ArrayList<Game> games) {
         this.games = games;
     }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
    
     @Override
     public int hashCode() {
@@ -71,7 +80,6 @@ public class Map implements Serializable{
     public String toString() {
         return "Map{" + "description=" + description + ", rowCount=" + rowCount + ", columnCount=" + columnCount + '}';
     }
-    
     
     @Override
     public boolean equals(Object obj) {
@@ -96,8 +104,5 @@ public class Map implements Serializable{
         }
         return true;
     }
-    
-    
-    
-    
+
 }
