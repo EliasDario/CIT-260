@@ -15,6 +15,7 @@ import java.util.Objects;
 public class ResourceScene extends RegularSceneType implements Serializable {
     private int amount;
     private ArrayList<InventoryItem> inventoryItem = new ArrayList<InventoryItem>();
+    //Method that relate both classes.
     public ResourceScene(String description, double travelDay, String river, String mountain, String weather, String month) {
         super(description, travelDay, river, mountain, weather, month);
     }
