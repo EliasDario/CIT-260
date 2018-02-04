@@ -6,7 +6,9 @@
 package oregontrail;
 import byui.cit260.oregontrail.model.Actor;
 import byui.cit260.oregontrail.model.Game;
+import byui.cit260.oregontrail.model.InventoryItem;
 import byui.cit260.oregontrail.model.Player;
+
 
 
 /**
@@ -20,8 +22,21 @@ public class OregonTrail {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+       //made by AMon
         Player amon = new Player("Amon"); //it is a instance of a class.
         System.out.println(amon.toString()); //ToString().
+        
+           
+        //made by lucia
+        Player lucia = new Player ("Lucia");// it is a instance of a class
+        Game one = new Game(lucia);
+        lucia.setName("Elias"); //setter method
+        
+        System.out.println(lucia.toString());//calling ToString()
+        System.out.println(one.toString());
+        
+        InventoryItem food = new InventoryItem("Milk");// It is a instance of a class
+        System.out.println(food.toString());
 
     }
     
