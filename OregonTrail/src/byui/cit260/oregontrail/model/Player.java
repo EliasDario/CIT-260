@@ -17,7 +17,7 @@ public class Player implements Serializable{
     
     //Player attributes
     private String name;
-    private ArrayList<Game> games = new ArrayList<Game>();
+    private ArrayList<Game> game = new ArrayList<Game>();
     private Actor[] actor = new Actor[5];
     
 //Doing it in the constructor, the object instance require the name and occupation.
@@ -36,12 +36,13 @@ public class Player implements Serializable{
     
  //List of game object functions
     public ArrayList<Game> getGames() {
-        return games;
+        return game;
     }
 
-    public void setGames(ArrayList<Game> games) {
-        this.games = games;
+    public ArrayList<Game> getGame() {
+        return game;
     }
+
 
     public Actor[] getActor() {
         return actor;
@@ -58,13 +59,13 @@ public class Player implements Serializable{
     public int hashCode() {
         int hash = 7;
         hash = 37 * hash + Objects.hashCode(this.name);
-        hash = 37 * hash + Objects.hashCode(this.games);
+        hash = 37 * hash + Objects.hashCode(this.game);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", games=" + games + '}';
+        return "Player{" + "name=" + name + ", games=" + game + '}';
     }
 
     @Override
@@ -82,7 +83,7 @@ public class Player implements Serializable{
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
-        if (!Objects.equals(this.games, other.games)) {
+        if (!Objects.equals(this.game, other.game)) {
             return false;
         }
         return true;
