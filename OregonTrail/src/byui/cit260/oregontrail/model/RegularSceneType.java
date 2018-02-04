@@ -15,20 +15,19 @@ import java.util.Objects;
 public class RegularSceneType implements Serializable{
     private String description;
 
-    private double Travelday; 
+    private double travelDay; 
     private String river;
     private String mountain;
     private String weather;
     private String month;
     private ArrayList<Location>location = new ArrayList<Location>();
     private ArrayList<Animal> animal = new ArrayList<Animal>();
-    private int travelDay;
     
 
-    public RegularSceneType(String description, int travelday, String river, String mountain, String weather, String month) {
+    public RegularSceneType(String description, int travelDay, String river, String mountain, String weather, String month) {
 
         this.description = description;
-        this.travelDay = travelday;
+        this.travelDay = travelDay;
         this.river = river;
         this.mountain = mountain;
         this.weather = weather;
@@ -49,8 +48,8 @@ public class RegularSceneType implements Serializable{
         
     }
 
-    public void setTravelday(double Travelday) {
-        this.Travelday = Travelday;
+    public void setTravelDay(double travelDay) {
+        this.travelDay = travelDay;
 
     }
 
@@ -106,7 +105,7 @@ public class RegularSceneType implements Serializable{
     public int hashCode() {
         int hash = 7;
         hash = 17 * hash + Objects.hashCode(this.description);
-        hash = 17 * hash + (int) (Double.doubleToLongBits(this.Travelday) ^ (Double.doubleToLongBits(this.Travelday) >>> 32));
+        hash = 17 * hash + (int) (Double.doubleToLongBits(this.travelDay) ^ (Double.doubleToLongBits(this.travelDay) >>> 32));
         hash = 17 * hash + Objects.hashCode(this.river);
         hash = 17 * hash + Objects.hashCode(this.mountain);
         hash = 17 * hash + Objects.hashCode(this.weather);
@@ -128,7 +127,7 @@ public class RegularSceneType implements Serializable{
             return false;
         }
         final RegularSceneType other = (RegularSceneType) obj;
-        if (Double.doubleToLongBits(this.Travelday) != Double.doubleToLongBits(other.Travelday)) {
+        if (Double.doubleToLongBits(this.travelDay) != Double.doubleToLongBits(other.travelDay)) {
             return false;
         }
         if (!Objects.equals(this.description, other.description)) {
@@ -157,7 +156,7 @@ public class RegularSceneType implements Serializable{
 
     @Override
     public String toString() {
-        return "RegularSceneType{" + "description=" + description + ", Travelday=" + Travelday + ", river=" + river + ", mountain=" + mountain + ", weather=" + weather + ", month=" + month + ", location=" + location + ", animal=" + animal + '}';
+        return "RegularSceneType{" + "description=" + description + ", travelDay=" + travelDay + ", river=" + river + ", mountain=" + mountain + ", weather=" + weather + ", month=" + month + ", location=" + location + ", animal=" + animal + '}';
     }
 
     
