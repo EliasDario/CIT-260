@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package oregontrail;
+import byui.cit260.oregontrail.model.Actor;
+import byui.cit260.oregontrail.model.Game;
 import byui.cit260.oregontrail.model.Player;
+
 
 /**
  *
@@ -17,8 +20,9 @@ public class OregonTrail {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Player test = new Player("Test");
-        System.out.println(test.toString());
+        Player amon = new Player("Amon"); //it is a instance of a class.
+        System.out.println(amon.toString()); //ToString().
+
     }
     
 }
