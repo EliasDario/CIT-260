@@ -19,7 +19,7 @@ public class Animal implements Serializable{
     private int pound;
     private RegularSceneType regularSceneType;
 
-    Animal(String name, int pound) {
+    public Animal(String name, int pound) {
         this.name = name;
         this.pound = pound;
     }
