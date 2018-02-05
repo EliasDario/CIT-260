@@ -6,7 +6,7 @@
 package oregontrail;
 import byui.cit260.oregontrail.model.Actor;
 import byui.cit260.oregontrail.model.Game;
-import byui.cit260.oregontrail.model.InventoryItem;
+import byui.cit260.oregontrail.model.Map;
 import byui.cit260.oregontrail.model.Player;
 
 
@@ -22,12 +22,22 @@ public class OregonTrail {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-       //made by AMon
-        Player amon = new Player("Amon"); //it is a instance of a class.
-        System.out.println(amon.toString()); //ToString().
         
-           
-        //made by lucia
+       // -----------* made by Amon *---------------
+       
+        Player amon = new Player("Amon"); //it is a instance of Player class.
+        Actor warrior = new Actor ("Amon", "Warrior");//instance of Actor class.
+        Map mordor = new Map();//instance of Map class.
+        
+        mordor.setDescription("Mordor is a place where live Sauron."); //setter method for the map object.
+        warrior.setName("Anakin"); //setter method for the Actor object.        
+        amon.setName("Amon Silva"); //setter method for the Player object.
+        
+        System.out.println(amon.toString()); //ToString() for Player.
+        System.out.println(warrior.toString()); //ToString() for Actor.
+        System.out.println(mordor.toString()); //ToString() for Map.
+   
+        // -----------* made by lucia *---------------
         Player lucia = new Player ("Lucia");// it is a instance of a class
         Game one = new Game(lucia);
         lucia.setName("Elias"); //setter method
