@@ -8,6 +8,8 @@ import byui.cit260.oregontrail.model.Actor;
 import byui.cit260.oregontrail.model.Game;
 import byui.cit260.oregontrail.model.Map;
 import byui.cit260.oregontrail.model.Player;
+import byui.cit260.oregontrail.model.InventoryItem;
+
 
 
 
@@ -45,7 +47,8 @@ public class OregonTrail {
         System.out.println(lucia.toString());//calling ToString()
         System.out.println(one.toString());
         
-        InventoryItem food = new InventoryItem("Milk");// It is a instance of a class
+        InventoryItem food = new InventoryItem();
+        food.setInventoryType("Milk");// setter method fo the InventoryItem object
         System.out.println(food.toString());
 
     }
