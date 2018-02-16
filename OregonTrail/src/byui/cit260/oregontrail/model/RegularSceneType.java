@@ -14,7 +14,6 @@ import java.util.Objects;
  */
 public class RegularSceneType implements Serializable{
     private String description;
-
     private double travelDay; 
     private String river;
     private String mountain;
@@ -24,7 +23,7 @@ public class RegularSceneType implements Serializable{
     private ArrayList<Animal> animal = new ArrayList<Animal>();
     
 
-    public RegularSceneType(String description, int travelDay, String river, String mountain, String weather, String month) {
+    public RegularSceneType(String description, double travelDay, String river, String mountain, String weather, String month, ArrayList<Location> location, ArrayList<Animal> animal) {
 
         this.description = description;
         this.travelDay = travelDay;
@@ -32,6 +31,8 @@ public class RegularSceneType implements Serializable{
         this.mountain = mountain;
         this.weather = weather;
         this.month = month;
+        this.location = location;
+        this.animal = animal;
     }
 
     public String getDescription() {
