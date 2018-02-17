@@ -13,9 +13,9 @@ public class GameControl {
     public static int gamePunctuation (String occupation, int actorQty, int actorHealthy, int fund){
         int point = 0;
         if (occupation == "banker" || occupation == "carpenter" || occupation == "farmer"){
-            if (actorQty >= 0 || actorQty <= 5){
-                if (actorHealthy >= 0 || actorHealthy <= 5){
-                    if (fund >= 0 || fund <= 999){
+            if (actorQty >= 0 && actorQty <= 5){
+                if (actorHealthy >= 0 && actorHealthy <= 5){
+                    if (fund >= 0 && fund <= 999){
                         if (occupation == "banker"){
                             point = (actorQty + fund + actorHealthy) * 1;
                             return point;
