@@ -10,21 +10,38 @@ package buyi.cit260.oregontrail.control;
  * @author Elías
  */
 public class PlayerControl {
-    public static int changePlayerHealth( int ration, int pace, int weather) {
+    public static String changeWagonHealth( String ration, String pace, String weather) {
+     
+    //variables declaration
     
-        if (ration < 0 || ration >51){
-        return -1; }
+    String wagonHealth;
+    String errorMessage = "Please, enter the correct option";
+    
+        // testing inputs
+//        if (!(ration ==  "filling") || !(ration == "meager") || !(ration == "bare bones")){
+//         return errorMessage; }
+//        
+//       else if (!(pace == "steady") || !(pace == "strenuous") || !(pace == "gruelling")){
+//         return errorMessage; }
+//        
+//       else if (!(weather == "rainy") || !(weather == "sunny")  || !(weather == "snowy") || !(weather == "clowdy")){
+//        return errorMessage; }
         
-        if (pace != 1 || pace != 2 || pace != 3){
-        return -1; }
+        //Algoritm
+        if(ration == "filling"){
+            wagonHealth = "good";
+        }
         
-        if (weather != 1 || weather != 2 || weather != 3 || weather != 4){
-        return -1; }
+        else if(ration == "bare bones"){
+            wagonHealth = "bad";
+        }
         
-        int playerHealth = playerHealth - (pace * weather);
-        
-        return playerHealth;
-        
+        else if(ration == "meager" && pace == "steady" && (weather == "sunny" || weather == "clowdy")){
+            wagonHealth = "good";}
+            else{
+                    wagonHealth = "bad";
+                    }
+            return wagonHealth;
     }
     
     //made by Lucia.
@@ -34,7 +51,7 @@ public class PlayerControl {
         String banker = "$1600";
         String carpenter = "$800";
         String farmer = "$400";
-        String error = "Error please enter one of the numbers of the options";
+        String error = "Error, please enter one of the numbers of the options";
         
         if ( playerOccupation.equals("1")) { // occupation is banker
             return banker;
@@ -45,8 +62,8 @@ public class PlayerControl {
         if ( playerOccupation.equals("3")) { // occupation is farmer
             return farmer;
     }
-        if ( !playerOccupation.equals("1") || !playerOccupation.equals("2") || !playerOccupation.equals("3") ) { // occupation is banker
+        if ( !playerOccupation.equals("1") || !playerOccupation.equals("2") || !playerOccupation.equals("3") ) { //return error
             return error; }
-        
-        
+            return playerOccupation;
     }
+}

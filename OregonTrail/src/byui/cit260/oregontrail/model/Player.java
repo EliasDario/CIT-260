@@ -17,6 +17,15 @@ public class Player implements Serializable{
     
     //Player attributes
     private String name;
+
+    public String getWagonHealth() {
+        return wagonHealth;
+    }
+
+    public void setWagonHealth(String wagonHealth) {
+        this.wagonHealth = wagonHealth;
+    }
+    private String wagonHealth;
     private ArrayList<Game> game = new ArrayList<Game>();
     private Actor[] actor = new Actor[5];
     
