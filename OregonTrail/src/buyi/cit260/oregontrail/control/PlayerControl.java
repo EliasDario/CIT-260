@@ -26,4 +26,27 @@ public class PlayerControl {
         return playerHealth;
         
     }
-}
+    
+    //made by Lucia.
+    
+    public static String chooseOccupation(String playerOccupation){
+    
+        String banker = "$1600";
+        String carpenter = "$800";
+        String farmer = "$400";
+        String error = "Error please enter one of the numbers of the options";
+        
+        if ( playerOccupation.equals("1")) { // occupation is banker
+            return banker;
+        }
+        if ( playerOccupation.equals("2")) { // occupation is carpenter
+            return carpenter;
+        }
+        if ( playerOccupation.equals("3")) { // occupation is farmer
+            return farmer;
+    }
+        if ( !playerOccupation.equals("1") || !playerOccupation.equals("2") || !playerOccupation.equals("3") ) { // occupation is banker
+            return error; }
+        
+        
+    }
