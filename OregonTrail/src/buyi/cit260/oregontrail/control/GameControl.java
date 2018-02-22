@@ -5,6 +5,8 @@
  */
 package buyi.cit260.oregontrail.control;
 
+import byui.cit260.oregontrail.model.Player;
+
 /**
  *
  * @author Elías
@@ -37,6 +39,11 @@ public class GameControl {
         }
         else {return -1;}
     return -1;  
+    }
+
+    public static Player savePlayer(String name) {
+        System.out.println("\n*** savePlayer() called ***\n");
+        return new Player();
     }
     
 }

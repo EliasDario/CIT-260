@@ -18,6 +18,10 @@ public class Player implements Serializable{
     //Player attributes
     private String name;
 
+    public Player() {
+        
+    }
+
     public String getWagonHealth() {
         return wagonHealth;
     }
