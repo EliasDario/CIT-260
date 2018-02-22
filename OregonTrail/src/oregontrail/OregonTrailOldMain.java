@@ -17,7 +17,7 @@ import byui.cit260.oregontrail.model.InventoryItem;
  *
  * @author Amon Bernardo
  */
-public class OregonTrailAntigo {
+public class OregonTrailOldMain {
 
     /**
      * @param args the command line arguments

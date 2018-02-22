@@ -6,6 +6,7 @@
 package buyi.cit260.oregontrail.control;
 
 import byui.cit260.oregontrail.model.Player;
+import oregontrail.OregonTrail;
 
 /**
  *
@@ -42,8 +43,13 @@ public class GameControl {
     }
 
     public static Player savePlayer(String name) {
-        System.out.println("\n*** savePlayer() called ***\n");
-        return new Player();
+        if (name == null || name.length() < 1){
+            return null;
+        }
+        Player player = new Player();
+        player.setName(name);
+        OregonTrail.setPlayer(player); // save the player
+        return player;
     }
     
 }
