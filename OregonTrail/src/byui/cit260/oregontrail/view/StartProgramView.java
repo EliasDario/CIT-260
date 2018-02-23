@@ -33,6 +33,7 @@ public class StartProgramView {
         
           String[] inputs = new String[1]; // array one element long
           System.out.println ("Welcome to Oregon Trail Game!\n");
+           System.out.println ("In this game you will drive a pionner expedition through the plains!\n");
           boolean valid = false;
           while (valid == false){   // while no input value has been entered
               System.out.print("Type the user name or type Q to quit: ");
