@@ -51,5 +51,9 @@ public class GameControl {
         OregonTrail.setPlayer(player); // save the player
         return player;
     }
+
+    public static void createNewGame(Player player) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
