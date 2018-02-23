@@ -5,14 +5,98 @@
  */
 package byui.cit260.oregontrail.view;
 
+import buyi.cit260.oregontrail.control.GameControl;
+import java.util.Scanner;
+import oregontrail.OregonTrail;
+
 /**
  *
  * @author Amon Bernardo
  */
-class MainMenuView {
-
-    void displayMainMenuView() {
-        System.out.println("**Display the Main Menu**");
+public class MainMenuView {
+    
+    public MainMenuView(){
     }
 
+    public boolean displayMainMenuView() {
+        
+        boolean endOfView = false;
+        do {
+        String[] inputs = this.getInputs();
+            if (inputs.equals(null) || inputs[0].toUpperCase().equals("Q")){ 
+                return false;
+            }
+        endOfView = doAction(inputs);    
+        }while (endOfView != true);
+        return true;
 }
+
+    private String[] getInputs() {
+        
+        String[] inputs = new String[1]; // array one element long
+          System.out.println ("Main Menu\n");
+           System.out.println ("N - Start New Game\n" + 
+                               "R - Restart Existing game\n"+
+                               "H - Get Help on how to play the game\n"+ 
+                               "Q - Exit");
+          boolean valid = false;
+          while (valid == false){   // while no input value has been entered
+              System.out.print("Choose one option or type Q to quit: ");
+              Scanner userInput = new Scanner(System.in);
+              
+              String userInputted = userInput.nextLine(); //Get the value entered from the keyboard
+              userInputted = userInputted.trim(); //Trim off leading and trailing blanks from the value
+              
+              if (userInputted.length() < 1){
+                 System.out.println("Invalid value entered");
+                 continue;
+              }
+              inputs[0] = userInputted;
+              valid = true;
+          } 
+          return inputs;
+    }
+
+    private boolean doAction(String[] inputs) {
+            String menuItem = inputs[0];
+            menuItem.toUpperCase();
+        switch (menuItem) {
+            case "N": 
+                startNewGame();
+                break;
+                
+            case "R": 
+                restartGame();
+                break;
+                
+            case "H": 
+                getHelp();
+                break;
+                
+            case "Q":
+                return true;
+                
+            default : System.out.println("Invalid menu Item");
+                  break;
+        }
+        return true;
+    }
+
+    private void startNewGame() {
+        GameControl.createNewGame(OregonTrail.getPlayer()); 
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.displayGameMenuView();
+         
+    }
+
+    private void restartGame() {
+        StartExistingGameView startExistingGameView = new StartExistingGameView();
+        startExistingGameView.displayStartExistingGameView();
+    }
+
+    private void getHelp() {
+        HelpMenuView helpMenuView = new HelpMenuView();
+        helpMenuView.displayHelpMenuView();
+    }
+}
+   
