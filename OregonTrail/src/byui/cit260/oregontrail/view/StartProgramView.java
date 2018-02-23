@@ -57,7 +57,7 @@ public class StartProgramView {
           player = GameControl.savePlayer(playerName);
           if (player == null){
               System.out.println("Could not create the player.\n" +
-                      "Enter a different name");
+                      "You must enter a non-blank value");
               return false;
           }
           System.out.println("================================================= \n"
