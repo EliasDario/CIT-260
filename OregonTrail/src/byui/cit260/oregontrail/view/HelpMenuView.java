@@ -9,10 +9,12 @@ package byui.cit260.oregontrail.view;
  *
  * @author Amon Bernardo
  */
-class HelpMenuView {
+public class HelpMenuView {
 
-    void displayHelpMenuView() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void displayHelpMenuView() {
+       /* throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       */
+        System.out.println("displayHelpMenuView() method was called");
     }
     
 }

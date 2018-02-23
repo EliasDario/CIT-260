@@ -27,7 +27,8 @@ public class MainMenuView {
                 return false;
             }
         endOfView = doAction(inputs);    
-        }while (endOfView != true);
+            }
+        while (endOfView != true);
         return true;
 }
 
@@ -38,7 +39,7 @@ public class MainMenuView {
            System.out.println ("N - Start New Game\n" + 
                                "R - Restart Existing game\n"+
                                "H - Get Help on how to play the game\n"+ 
-                               "Q - Exit");
+                               "E - Exit");
           boolean valid = false;
           while (valid == false){   // while no input value has been entered
               System.out.print("Choose one option or type Q to quit: ");
@@ -48,7 +49,10 @@ public class MainMenuView {
               userInputted = userInputted.trim(); //Trim off leading and trailing blanks from the value
               
               if (userInputted.length() < 1){
-                 System.out.println("Invalid value entered");
+                 System.out.println("You must specify a value");}
+                 else if (" ".equals(userInputted)){
+                         System.out.println("You must specify an allowed visible value");
+                         // Added code for dealing with blank space user input (" ").
                  continue;
               }
               inputs[0] = userInputted;

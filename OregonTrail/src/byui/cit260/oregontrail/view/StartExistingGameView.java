@@ -9,10 +9,12 @@ package byui.cit260.oregontrail.view;
  *
  * @author Amon Bernardo
  */
-class StartExistingGameView {
+public class StartExistingGameView {
 
-    void displayStartExistingGameView() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   public void displayStartExistingGameView() {
+       /* throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       */
+        System.out.println("this method was called");
+}
     
 }
