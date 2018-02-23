@@ -73,13 +73,13 @@ public class MainMenuView {
                 getHelp();
                 break;
                 
-            case "Q":
+            case "E":
                 return true;
                 
             default : System.out.println("Invalid menu Item");
                   break;
         }
-        return true;
+        return false;
     }
 
     private void startNewGame() {
