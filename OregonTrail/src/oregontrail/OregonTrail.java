@@ -9,7 +9,10 @@ import byui.cit260.oregontrail.model.Game;
 import byui.cit260.oregontrail.model.Map;
 import byui.cit260.oregontrail.model.Player;
 import byui.cit260.oregontrail.model.InventoryItem;
+import byui.cit260.oregontrail.view.QuitMenuView;
 import byui.cit260.oregontrail.view.StartProgramView;
+
+
 
 
 
@@ -32,6 +35,8 @@ public class OregonTrail {
         
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.displayStartProgramView();
+        
+
 
     }
 

@@ -39,7 +39,8 @@ public class MainMenuView {
            System.out.println ("N - Start New Game\n" + 
                                "R - Restart Existing game\n"+
                                "H - Get Help on how to play the game\n"+ 
-                               "E - Exit");
+                               "E - Exit\n" +
+                               "T - Quit Menu");
           boolean valid = false;
           while (valid == false){   // while no input value has been entered
               System.out.print("Choose one option or type Q to quit: ");
@@ -79,6 +80,9 @@ public class MainMenuView {
                 
             case "E":
                 return true;
+            case "T":
+                quitMenu();
+                return false;
                 
             default : System.out.println("\nInvalid menu Item\n");
                   break;
@@ -101,6 +105,11 @@ public class MainMenuView {
     private void getHelp() {
         HelpMenuView helpMenuView = new HelpMenuView();
         helpMenuView.displayHelpMenuView();
+    }
+
+    private void quitMenu() {
+        QuitMenuView quitMenuView = new QuitMenuView();
+        quitMenuView.displayQuitMenu();
     }
 }
    

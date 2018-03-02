@@ -57,5 +57,9 @@ public class GameControl {
       */
        System.out.println("this method was called");
 }
+
+    public static void saveGame() {
+        System.out.println("\nsaveGame() called.\n");
+    }
     
 }
