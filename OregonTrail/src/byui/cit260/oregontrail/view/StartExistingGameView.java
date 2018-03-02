@@ -14,7 +14,7 @@ public class StartExistingGameView {
    public void displayStartExistingGameView() {
        /* throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
        */
-        System.out.println("this method was called");
+        System.out.println("\ndisplayStartExistingGameView method was called");
 }
     
 }

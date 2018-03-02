@@ -12,7 +12,7 @@ package byui.cit260.oregontrail.view;
 public class GameMenuView {
 
    public void displayGameMenuView() {
-       System.out.println("displayGameMenuView() method was called");
+       System.out.println("\ndisplayGameMenuView() method was called");
     }
     
 }

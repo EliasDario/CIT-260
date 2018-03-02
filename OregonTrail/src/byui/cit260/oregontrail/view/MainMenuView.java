@@ -63,7 +63,7 @@ public class MainMenuView {
 
     private boolean doAction(String[] inputs) {
             String menuItem = inputs[0];
-            menuItem.toUpperCase();
+            menuItem = menuItem.toUpperCase();
         switch (menuItem) {
             case "N": 
                 startNewGame();
@@ -80,7 +80,7 @@ public class MainMenuView {
             case "E":
                 return true;
                 
-            default : System.out.println("Invalid menu Item");
+            default : System.out.println("\nInvalid menu Item\n");
                   break;
         }
         return false;
