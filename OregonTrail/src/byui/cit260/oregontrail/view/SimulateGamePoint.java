@@ -89,40 +89,7 @@ public class SimulateGamePoint {
                 }
                 
             }
-//            if (playerOccupation != "banker"){
-//                System.out.println("Enter the player occupation: ");
-//                
-//                Scanner sc = new Scanner(System.in);
-//                String[] input = new String[1];
-//                input[0] = sc.nextLine();
-//                
-//                if (input[0].equals("banker")){
-//                    playerOccupation = "banker";
-//                }else{ System.out.println("\nOccupation incorrect. Please, type again."); continue;}
-//            }
-//            else if(playerOccupation != "farmer"){
-//                System.out.println("Enter the player occupation: ");
-//
-//                Scanner sc = new Scanner(System.in);
-//                String[] input = new String[1];
-//                input[0] = sc.nextLine();
-//
-//                if (input[0].equals("farmer")){
-//                    playerOccupation = "farmer";
-//                }else{ System.out.println("\nOccupation incorrect. Please, type again."); continue;}  
-//            }
-//            else if (playerOccupation != "carpenter"){
-//                System.out.println("Enter the player occupation: ");
-//
-//                Scanner sc = new Scanner(System.in);
-//                String[] input = new String[1];
-//                input[0] = sc.nextLine();
-//
-//                if (input[0].equals("carpenter")){
-//                    playerOccupation = "carpenter";
-//                }else{ System.out.println("O\nccupation incorrect. Please, type again."); continue;}
-//            }
-        
+
             player[0] = Integer.toString(actQty);
             player[1] = Integer.toString(actHealthy);
             player[2] = Integer.toString(playerFund);
