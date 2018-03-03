@@ -10,6 +10,7 @@ import byui.cit260.oregontrail.model.Map;
 import byui.cit260.oregontrail.model.Player;
 import byui.cit260.oregontrail.model.InventoryItem;
 import byui.cit260.oregontrail.view.QuitMenuView;
+import byui.cit260.oregontrail.view.SimulateGamePoint;
 import byui.cit260.oregontrail.view.StartProgramView;
 
 
@@ -32,6 +33,8 @@ public class OregonTrail {
     
     public static void main(String[] args) {
         // TODO code application logic here
+        SimulateGamePoint simulateGamePoint = new SimulateGamePoint();
+        simulateGamePoint.displaySimulateGamePoint();
         
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.displayStartProgramView();
