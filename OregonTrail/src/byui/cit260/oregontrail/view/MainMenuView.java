@@ -13,59 +13,24 @@ import oregontrail.OregonTrail;
  *
  * @author Amon Bernardo
  */
-public class MainMenuView {
+public class MainMenuView extends View{
     
     public MainMenuView(){
-    }
-
-    public boolean displayMainMenuView() {
-        
-        boolean endOfView = false;
-        do {
-        String[] inputs = this.getInputs();
-            if (inputs.equals(null) || inputs[0].toUpperCase().equals("Q")){ 
-                return false;
-            }
-        endOfView = doAction(inputs);    
-            }
-        while (endOfView != true);
-        return true;
-}
-
-    private String[] getInputs() {
-        
-        String[] inputs = new String[1]; // array one element long
-          System.out.println ("Main Menu\n");
-           System.out.println ("N - Start New Game\n" + 
-                               "R - Restart Existing game\n"+
-                               "H - Get Help on how to play the game\n"+ 
-                               "E - Exit\n" +
-                               "T - Quit Menu");
-          boolean valid = false;
-          while (valid == false){   // while no input value has been entered
-              System.out.print("Choose one option or type Q to quit: ");
-              Scanner userInput = new Scanner(System.in);
-              
-              String userInputted = userInput.nextLine(); //Get the value entered from the keyboard
-              userInputted = userInputted.trim(); //Trim off leading and trailing blanks from the value
-              
-              if (userInputted.length() < 1){
-                 System.out.println("You must specify a value");}
-                 else if (" ".equals(userInputted)){
-                         System.out.println("You must specify an allowed visible value");
-                         // Added code for dealing with blank space user input (" ").
-                 continue;
-              }
-              inputs[0] = userInputted;
-              valid = true;
-          } 
-          return inputs;
-    }
-
-    private boolean doAction(String[] inputs) {
-            String menuItem = inputs[0];
-            menuItem = menuItem.toUpperCase();
-        switch (menuItem) {
+        super ("\n"
+            + "\n----------------------------------"
+            + "\n| Main Menu                      |"
+            + "\n----------------------------------"
+            + "\nN - Start New Game\n"
+            + "R - Restart Existing game\n"
+            + "H - Get Help on how to play the game\n"
+            + "E - Exit\n"
+            + "T - Quit Menu"
+            + "\n----------------------------------");
+    }    
+    @Override
+    public boolean doAction(String value) {
+            value = value.toUpperCase();
+        switch (value) {
             case "N": 
                 startNewGame();
                 break;

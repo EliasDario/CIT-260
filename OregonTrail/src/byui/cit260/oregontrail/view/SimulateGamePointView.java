@@ -12,8 +12,8 @@ import java.util.Scanner;
  *
  * @author Amon Bernardo
  */
-public class SimulateGamePoint {
-    public SimulateGamePoint(){}
+public class SimulateGamePointView {
+    public SimulateGamePointView(){}
     
     public void displaySimulateGamePoint(){
         boolean endOfView = false;

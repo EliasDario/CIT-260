@@ -75,7 +75,7 @@ public class StartProgramView {
             + "\nWe hope you have a lot of fun!\n"
             + "================================================= \n");
         MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.displayMainMenuView();
+        mainMenuView.display();
         return true;
     }
     
