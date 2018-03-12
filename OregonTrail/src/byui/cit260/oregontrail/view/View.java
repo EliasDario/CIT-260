@@ -29,6 +29,7 @@ public abstract class View implements ViewInterface {
             String value = this.getInput();
             if (value.toUpperCase().equals("Q"))//user wants to quit
                 return;
+            done = this.doAction(value);
         }while (!done); // exit the view when done == true
     }
 
