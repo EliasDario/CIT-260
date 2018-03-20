@@ -24,6 +24,7 @@ public class Actor implements Serializable{
     private ArrayList<Wagon> wagon = new ArrayList<Wagon>();
     private Location location;
 
+    public Actor(){}
     public Actor(String name, String ocuppation) {
         this.name = name;
         this.ocuppation = ocuppation;

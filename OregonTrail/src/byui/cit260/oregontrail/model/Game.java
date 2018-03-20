@@ -19,6 +19,8 @@ public class Game implements Serializable{
     private Map map;
     private ArrayList<InventoryItem> InventoryItem = new ArrayList<InventoryItem>();
     
+    public Game(){}
+    
     public Game(Player player) {
         this.totalTime = totalTime;
         this.player = player;

@@ -23,8 +23,9 @@ public class MainMenuView extends View{
             + "\nN - Start New Game\n"
             + "R - Restart Existing game\n"
             + "H - Get Help on how to play the game\n"
+            + "G - Store\n"
             + "E - Exit\n"
-            + "T - Quit Menu"
+            + "T - Quit Menu\n"
             + "\n----------------------------------");
     }    
     @Override
@@ -42,13 +43,14 @@ public class MainMenuView extends View{
             case "H": 
                 getHelp();
                 break;
-                
+            case "G": 
+                store();
+                break;
             case "E":
                 return true;
             case "T":
                 quitMenu();
                 return false;
-                
             default : System.out.println("\nInvalid menu Item\n");
                   break;
         }
@@ -75,6 +77,11 @@ public class MainMenuView extends View{
     private void quitMenu() {
         QuitMenuView quitMenuView = new QuitMenuView();
         quitMenuView.displayQuitMenu();
+    }
+
+    private void store() {
+        GeneralStore generalStore = new GeneralStore();
+        generalStore.display();
     }
 }
    

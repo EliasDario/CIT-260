@@ -19,6 +19,7 @@ public class InventoryItem implements Serializable{
     private double quantityInStock;
     private double requiredAmount;
     private Game game;
+    private ArrayList<Item> items = new ArrayList<Item>();
     private ArrayList<ResourceScene> resourceScene = new ArrayList<>();
 
     public InventoryItem() {

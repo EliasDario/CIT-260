@@ -5,10 +5,24 @@
  */
 package buyi.cit260.oregontrail.control;
 
+import byui.cit260.oregontrail.model.Item;
+import java.util.ArrayList;
+
 /**
  *
  * @author Elías
  */
 public class ShopControl {
-    
+    public static int itemTotalPrice (ArrayList<Item> items){ 
+        int totalPrice = -1;
+        if (items != null){
+            totalPrice = 0;
+            for (Item item : items){
+                
+                totalPrice += item.getPrice();
+            }
+        }
+        
+        return totalPrice;
+    }
 }

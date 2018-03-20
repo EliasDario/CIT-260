@@ -31,7 +31,7 @@ public class Player implements Serializable{
     }
     private String wagonHealth;
     private ArrayList<Game> game = new ArrayList<Game>();
-    private Actor[] actor = new Actor[5];
+    private Actor[] actor;
     
 //Doing it in the constructor, the object instance require the name and occupation.
     public Player(String name) {
