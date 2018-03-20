@@ -35,18 +35,12 @@ public class OregonTrail {
 //        simulateGamePoint.displaySimulateGamePoint();
 //        GeneralStore generalStore = new GeneralStore();
 //        generalStore.display();        
-
+//
 //        ArrayList<Item> itemTest = new ArrayList<Item>();
-//        Item testItem1 = new Item();
-//        Item testItem2 = new Item();
-//        
-//        testItem1.setPrice(100);
-//        testItem2.setPrice(237);
-//        itemTest.add(testItem1);
-//        itemTest.add(testItem2);
-//        
-//        ShopControl.itemTotalPrice(itemTest);
-//        
+//        Item testItem1 = new Item(100);
+//
+//        System.out.println ("Result: " + ShopControl.itemTotalPrice(itemTest));
+        
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.displayStartProgramView();
         

@@ -14,14 +14,16 @@ public class Item {
     private String description;
     private String type;
     
-    
-    public Item (){
+    public Item (){}
+    public Item (int price){
+        this.price = price;
     }
     public Item(int price, String description, String type){
         this.price = price;
         this.description  = description;
         this.type = type;
     }
+
     public int getPrice() {
         return price;
     }

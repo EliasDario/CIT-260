@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class ShopControl {
     public static int itemTotalPrice (ArrayList<Item> items){ 
         int totalPrice = -1;
-        if (items != null){
+        if (items.size() != 0){
             totalPrice = 0;
             for (Item item : items){
                 
