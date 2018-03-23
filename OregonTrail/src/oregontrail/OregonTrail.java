@@ -30,20 +30,23 @@ public class OregonTrail {
     private static Player player = null;
     
     public static void main(String[] args) {
-        // TODO code application logic here
-//        SimulateGamePointView simulateGamePoint = new SimulateGamePointView();
-//        simulateGamePoint.displaySimulateGamePoint();
-//        GeneralStore generalStore = new GeneralStore();
-//        generalStore.display();        
-//
-//        ArrayList<Item> itemTest = new ArrayList<Item>();
-//        Item testItem1 = new Item(100);
-//
-//        System.out.println ("Result: " + ShopControl.itemTotalPrice(itemTest));
-        
-        StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayStartProgramView();
-        
+        try{
+            // TODO code application logic here
+    //        SimulateGamePointView simulateGamePoint = new SimulateGamePointView();
+    //        simulateGamePoint.displaySimulateGamePoint();
+    //        GeneralStore generalStore = new GeneralStore();
+    //        generalStore.display();        
+    //
+    //        ArrayList<Item> itemTest = new ArrayList<Item>();
+    //        Item testItem1 = new Item(100);
+    //
+    //        System.out.println ("Result: " + ShopControl.itemTotalPrice(itemTest));
+
+            StartProgramView startProgramView = new StartProgramView();
+            startProgramView.displayStartProgramView();
+        }catch (Exception e){
+            System.out.println("Some error occured: " + e.getMessage());
+        }
     }
 
     public static Game getCurrentGame() {

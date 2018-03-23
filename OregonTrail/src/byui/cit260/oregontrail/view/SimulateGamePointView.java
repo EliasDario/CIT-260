@@ -6,6 +6,7 @@
 package byui.cit260.oregontrail.view;
 
 import buyi.cit260.oregontrail.control.GameControl;
+import buyi.cit260.oregontrail.exceptions.GameControlException;
 import java.util.Scanner;
 
 /**
@@ -21,11 +22,10 @@ public class SimulateGamePointView {
             String[] player = new String[4];
             player = getInput();
             endOfView = doAction(player);
-        }while (endOfView != true);
-        return;
+        }while (endOfView != true);    
 }
 
-    private String[] getInput() {
+    private String[] getInput(){
         String[] player = new String[4];
         boolean verify = false;
         int actQty = -1;
@@ -40,7 +40,14 @@ public class SimulateGamePointView {
                 String[] input = new String[1];
                 input[0] = sc.nextLine();
                 
+                try{
                 actQty = Integer.parseInt(input[0]);
+                }
+                
+                catch (NumberFormatException e){
+                    System.out.println("\n" + e.getMessage() + " You need input only numbers.");
+                }
+                
                 if (actQty < 0 || actQty > 5){
                     System.out.println("\nactor quantity incorrect. Please, type again.");
                     continue;
@@ -51,7 +58,13 @@ public class SimulateGamePointView {
                 Scanner sc = new Scanner(System.in);
                 String[] input = new String[1];
                 input[0] = sc.nextLine();
-                actHealthy = Integer.parseInt(input[0]);
+                try{
+                    actHealthy = Integer.parseInt(input[0]);
+                }
+                catch (NumberFormatException e){
+                    System.out.println("\n" + e.getMessage() + " You need input only numbers.");
+                }
+                
                 if (actHealthy < 0 || actHealthy > 5){
                     System.out.println("\nactor healthy number incorrect. Please, type again.");
                     continue;
@@ -64,7 +77,13 @@ public class SimulateGamePointView {
                 String[] input = new String[1];
                 input[0] = sc.nextLine();
                 
-                playerFund = Integer.parseInt(input[0]);
+                try{
+                    playerFund = Integer.parseInt(input[0]);
+                }
+                catch (NumberFormatException e){
+                    System.out.println("\n" + e.getMessage() + " You need input only numbers.");
+                }
+                
                 if (playerFund < 0 || playerFund > 999){
                     System.out.println("\nplayer fund incorrect. Please, type again.");
                     continue;
@@ -89,7 +108,7 @@ public class SimulateGamePointView {
                 }
                 
             }
-
+            
             player[0] = Integer.toString(actQty);
             player[1] = Integer.toString(actHealthy);
             player[2] = Integer.toString(playerFund);
@@ -100,13 +119,18 @@ public class SimulateGamePointView {
     }
     
     private boolean doAction(String[] player) {
-       System.out.println("\nThe Punctions Simulations results is: " + simulateGamePunctuation(player));
-       return true;
-
-
+        try{
+         System.out.println("\nThe Punctions Simulations results is: " + simulateGamePunctuation(player));
+         return true;
+         }
+        catch (GameControlException e){
+            System.out.println(e.getMessage());
+        return false;
+        }
     }
 
-    private String simulateGamePunctuation(String[] player) {
+    private String simulateGamePunctuation(String[] player) throws GameControlException{
+        
         int point = GameControl.gamePunctuation(player[3], Integer.parseInt(player[0]), Integer.parseInt(player[1]), Integer.parseInt(player[2]));
         return Integer.toString(point);
     }

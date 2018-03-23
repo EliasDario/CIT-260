@@ -5,10 +5,12 @@
  */
 package buyi.cit260.oregontrail.control;
 
+import buyi.cit260.oregontrail.exceptions.GameControlException;
 import byui.cit260.oregontrail.model.Actor;
 import byui.cit260.oregontrail.model.ActorType;
 import byui.cit260.oregontrail.model.Game;
 import byui.cit260.oregontrail.model.InventoryItem;
+import byui.cit260.oregontrail.model.ItemType;
 import byui.cit260.oregontrail.model.Map;
 import byui.cit260.oregontrail.model.Player;
 import java.util.ArrayList;
@@ -20,7 +22,7 @@ import oregontrail.OregonTrail;
  */
 public class GameControl {
     
-    public static int gamePunctuation (String occupation, int actorQty, int actorHealthy, int fund){       
+    public static int gamePunctuation (String occupation, int actorQty, int actorHealthy, int fund) throws GameControlException{       
         int point = 0;
         if (occupation == "banker" || occupation == "carpenter" || occupation == "farmer"){
             if (actorQty >= 0 && actorQty <= 5){
@@ -39,14 +41,16 @@ public class GameControl {
                             return point;
                         }
                     } 
-                    else {return -1;}
+                    else {throw new GameControlException("The actor funds must be between 0 and 999");}
                 }
-                else {return -1;}
+                else {throw new GameControlException("The actor healthy status must be between 0 and 5");}
             }
-            else {return -1;}
+            else {throw new GameControlException("The actor quantity must be between 0 and 5.");}
         }
-        else {return -1;}
-    return -1;  
+        else {
+            throw new GameControlException("The actor occupation must be \"banker\" or \"farmer\" or \"carpenter\"");
+        }
+        throw new GameControlException("Some error occured");  
     }
 
     public static Player savePlayer(String name) {
@@ -59,9 +63,9 @@ public class GameControl {
         return player;
     }
 
-    public static int createNewGame(Player player) {
+    public static void createNewGame(Player player) throws GameControlException{
         if (player == null){
-            return -1;
+            throw new GameControlException("Player wasn't created, revise the input.");
         }
         int noOfRows = 0;
         int noOfColumns = 0;
@@ -82,20 +86,51 @@ public class GameControl {
         Map map = new Map();
         map = createMap(noOfRows, noOfColumns);
         if (map == null){
-            return -1;
+            throw new GameControlException("The map wasn't created, revise the input.");
         }
         game.setMap(map);
-        return 1; // indicates success 
     }
-
+    
     public static void saveGame() {
         System.out.println("\nsaveGame() called.\n");
     }
 
-    private static ArrayList<InventoryItem> createItems() {
-        System.out.println("CreateItem Mehtod called.");
-        ArrayList<InventoryItem> someItem = new ArrayList<>();
-        return someItem;
+    private static InventoryItem[] createItems() {
+        InventoryItem[] items = new InventoryItem[5];
+        
+        //oxen
+        InventoryItem oxen = new InventoryItem();
+        oxen.setGame(OregonTrail.getCurrentGame());
+        oxen.setInventoryType("Oxen");
+        items[ItemType.oxe.ordinal()] = oxen;
+        
+        //food
+        InventoryItem food = new InventoryItem();
+        food.setGame(OregonTrail.getCurrentGame());
+        food.setInventoryType("Oxen");
+        items[ItemType.food.ordinal()] = food;
+        
+        //clothing
+        InventoryItem clothing = new InventoryItem();
+        oxen.setGame(OregonTrail.getCurrentGame());
+        oxen.setInventoryType("clothing");
+        items[ItemType.clothing.ordinal()] = clothing;
+        
+        //ammunition
+        InventoryItem ammunition = new InventoryItem();
+        oxen.setGame(OregonTrail.getCurrentGame());
+        oxen.setInventoryType("ammunition");
+        items[ItemType.ammunition.ordinal()] = ammunition;
+        
+        //spareParts
+        InventoryItem spareParts = new InventoryItem();
+        oxen.setGame(OregonTrail.getCurrentGame());
+        oxen.setInventoryType("spareParts");
+        items[ItemType.spareParts.ordinal()] = spareParts;
+        
+        //returning items
+        return items;
+
     }
 
     private static Map createMap(int noOfRows, int noOfColumns) {

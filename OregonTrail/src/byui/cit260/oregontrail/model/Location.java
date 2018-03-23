@@ -5,16 +5,18 @@
  */
 package byui.cit260.oregontrail.model;
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Objects;
 /**
  *
  * @author lucia
  */
 public class Location implements Serializable{
     
-    private double row;
-    private double column;
-    private double visited;
-    private double amountRemaining;
+    private int row;
+    private int column;
+    private boolean visited;
+    private int amountRemaining;
     private Map map;
     private Actor[] actor = new Actor[5];
     private RegularSceneType regularSceneType;
@@ -23,35 +25,35 @@ public class Location implements Serializable{
         this.map = map;
     }
 
-    public double getRow() {
+    public int getRow() {
         return row;
     }
 
-    public void setRow(double row) {
+    public void setRow(int row) {
         this.row = row;
     }
 
-    public double getColumn() {
+    public int getColumn() {
         return column;
     }
 
-    public void setColumn(double column) {
+    public void setColumn(int column) {
         this.column = column;
     }
 
-    public double getVisited() {
+    public boolean isVisited() {
         return visited;
     }
 
-    public void setVisited(double visited) {
+    public void setVisited(boolean visited) {
         this.visited = visited;
     }
 
-    public double getAmountRemaining() {
+    public int getAmountRemaining() {
         return amountRemaining;
     }
 
-    public void setAmountRemaining(double amountRemaining) {
+    public void setAmountRemaining(int amountRemaining) {
         this.amountRemaining = amountRemaining;
     }
 
@@ -78,22 +80,18 @@ public class Location implements Serializable{
     public void setRegularSceneType(RegularSceneType regularSceneType) {
         this.regularSceneType = regularSceneType;
     }
-    
-    
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.row) ^ (Double.doubleToLongBits(this.row) >>> 32));
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.column) ^ (Double.doubleToLongBits(this.column) >>> 32));
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.visited) ^ (Double.doubleToLongBits(this.visited) >>> 32));
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.amountRemaining) ^ (Double.doubleToLongBits(this.amountRemaining) >>> 32));
+        hash = 23 * hash + this.row;
+        hash = 23 * hash + this.column;
+        hash = 23 * hash + (this.visited ? 1 : 0);
+        hash = 23 * hash + this.amountRemaining;
+        hash = 23 * hash + Objects.hashCode(this.map);
+        hash = 23 * hash + Arrays.deepHashCode(this.actor);
+        hash = 23 * hash + Objects.hashCode(this.regularSceneType);
         return hash;
-    }
-
-    @Override
-    public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", amountRemaining=" + amountRemaining + '}';
     }
 
     @Override
@@ -108,21 +106,29 @@ public class Location implements Serializable{
             return false;
         }
         final Location other = (Location) obj;
-        if (Double.doubleToLongBits(this.row) != Double.doubleToLongBits(other.row)) {
+        if (this.row != other.row) {
             return false;
         }
-        if (Double.doubleToLongBits(this.column) != Double.doubleToLongBits(other.column)) {
+        if (this.column != other.column) {
             return false;
         }
-        if (Double.doubleToLongBits(this.visited) != Double.doubleToLongBits(other.visited)) {
+        if (this.visited != other.visited) {
             return false;
         }
-        if (Double.doubleToLongBits(this.amountRemaining) != Double.doubleToLongBits(other.amountRemaining)) {
+        if (this.amountRemaining != other.amountRemaining) {
+            return false;
+        }
+        if (!Objects.equals(this.map, other.map)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.actor, other.actor)) {
+            return false;
+        }
+        if (!Objects.equals(this.regularSceneType, other.regularSceneType)) {
             return false;
         }
         return true;
     }
-    
-    
+
     
 }

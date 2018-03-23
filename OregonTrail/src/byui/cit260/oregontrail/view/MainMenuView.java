@@ -6,7 +6,10 @@
 package byui.cit260.oregontrail.view;
 
 import buyi.cit260.oregontrail.control.GameControl;
+import buyi.cit260.oregontrail.exceptions.GameControlException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import oregontrail.OregonTrail;
 
 /**
@@ -17,11 +20,12 @@ public class MainMenuView extends View{
     
     public MainMenuView(){
         super ("\n"
-            + "\n----------------------------------"
-            + "\n| Main Menu                      |"
-            + "\n----------------------------------"
-            + "\nN - Start New Game\n"
+            + "----------------------------------\n"
+            + "| Main Menu                      |\n"
+            + "----------------------------------\n"
+            + "N - Start New Game\n"
             + "R - Restart Existing game\n"
+            + "A - Simulate game points\n"
             + "H - Get Help on how to play the game\n"
             + "G - Store\n"
             + "E - Exit\n"
@@ -33,13 +37,19 @@ public class MainMenuView extends View{
             value = value.toUpperCase();
         switch (value) {
             case "N": 
+                try{
                 startNewGame();
-                break;
-                
+                return true;
+                }
+                catch (GameControlException e) {
+                    System.out.println(e.getMessage());
+                    return false;
+                }
             case "R": 
                 restartGame();
                 break;
-                
+            case "A":
+                simulatePoints();
             case "H": 
                 getHelp();
                 break;
@@ -57,7 +67,7 @@ public class MainMenuView extends View{
         return false;
     }
 
-    private void startNewGame() {
+    private void startNewGame() throws GameControlException{
         GameControl.createNewGame(OregonTrail.getPlayer()); 
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.displayGameMenuView();
@@ -71,7 +81,7 @@ public class MainMenuView extends View{
 
     private void getHelp() {
         HelpMenuView helpMenuView = new HelpMenuView();
-        helpMenuView.displayHelpMenuView();
+        helpMenuView.display();
     }
 
     private void quitMenu() {
@@ -82,6 +92,11 @@ public class MainMenuView extends View{
     private void store() {
         GeneralStore generalStore = new GeneralStore();
         generalStore.display();
+    }
+
+    private void simulatePoints() {
+        SimulateGamePointView simulateGamePointView = new SimulateGamePointView();
+        simulateGamePointView.displaySimulateGamePoint();
     }
 }
    
