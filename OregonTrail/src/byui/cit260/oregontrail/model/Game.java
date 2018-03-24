@@ -17,7 +17,56 @@ public class Game implements Serializable{
     private Player player;
     private Actor[] actor;
     private Map map;
-    private ArrayList<InventoryItem> InventoryItem = new ArrayList<InventoryItem>();
+    private InventoryItem[] inventoryItem = new InventoryItem[5];
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 31 * hash + (int) (Double.doubleToLongBits(this.totalTime) ^ (Double.doubleToLongBits(this.totalTime) >>> 32));
+        hash = 31 * hash + Objects.hashCode(this.player);
+        hash = 31 * hash + Arrays.deepHashCode(this.actor);
+        hash = 31 * hash + Objects.hashCode(this.map);
+        hash = 31 * hash + Arrays.deepHashCode(this.inventoryItem);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Game other = (Game) obj;
+        if (Double.doubleToLongBits(this.totalTime) != Double.doubleToLongBits(other.totalTime)) {
+            return false;
+        }
+        if (!Objects.equals(this.player, other.player)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.actor, other.actor)) {
+            return false;
+        }
+        if (!Objects.equals(this.map, other.map)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.inventoryItem, other.inventoryItem)) {
+            return false;
+        }
+        return true;
+    }
+
+    public InventoryItem[] getInventoryItem() {
+        return inventoryItem;
+    }
+
+    public void setInventoryItem(InventoryItem[] inventoryItem) {
+        this.inventoryItem = inventoryItem;
+    }
     
     public Game(){}
     
@@ -59,63 +108,5 @@ public class Game implements Serializable{
     public void setMap(Map map) {
         this.map = map;
     }
-
-    public ArrayList<InventoryItem> getInventoryItem() {
-        return InventoryItem;
-    }
-
-    public void setInventoryItem(ArrayList<InventoryItem> InventoryItem) {
-        this.InventoryItem = InventoryItem;
-    }
-    
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.totalTime) ^ (Double.doubleToLongBits(this.totalTime) >>> 32));
-        hash = 89 * hash + Objects.hashCode(this.player);
-        hash = 89 * hash + Arrays.deepHashCode(this.actor);
-        hash = 89 * hash + Objects.hashCode(this.map);
-        hash = 89 * hash + Objects.hashCode(this.InventoryItem);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Game other = (Game) obj;
-        if (Double.doubleToLongBits(this.totalTime) != Double.doubleToLongBits(other.totalTime)) {
-            return false;
-        }
-        if (!Objects.equals(this.player, other.player)) {
-            return false;
-        }
-        if (!Arrays.deepEquals(this.actor, other.actor)) {
-            return false;
-        }
-        if (!Objects.equals(this.map, other.map)) {
-            return false;
-        }
-        if (!Objects.equals(this.InventoryItem, other.InventoryItem)) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Game{" + "totalTime=" + totalTime + ", player=" + player + ", actor=" + actor + ", map=" + map + ", InventoryItem=" + InventoryItem + '}';
-    }
-
-
-    
-    
-    
+   
 }

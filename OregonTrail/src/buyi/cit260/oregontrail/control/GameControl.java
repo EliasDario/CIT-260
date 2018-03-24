@@ -79,7 +79,7 @@ public class GameControl {
         game.setActor(actors);
         player.setActor(actors);
         //items
-        ArrayList<InventoryItem> items = new ArrayList<InventoryItem>();
+        InventoryItem[] items = new InventoryItem[5];
         items = createItems();
         game.setInventoryItem(items);
         //Map
