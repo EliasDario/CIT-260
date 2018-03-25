@@ -11,8 +11,10 @@ import byui.cit260.oregontrail.model.ActorType;
 import byui.cit260.oregontrail.model.Game;
 import byui.cit260.oregontrail.model.InventoryItem;
 import byui.cit260.oregontrail.model.ItemType;
+import byui.cit260.oregontrail.model.Location;
 import byui.cit260.oregontrail.model.Map;
 import byui.cit260.oregontrail.model.Player;
+import byui.cit260.oregontrail.model.RegularSceneType;
 import java.util.ArrayList;
 import oregontrail.OregonTrail;
 
@@ -133,12 +135,27 @@ public class GameControl {
 
     }
 
-    private static Map createMap(int noOfRows, int noOfColumns) {
-        System.out.println("Create Map created");
+    private static Map createMap(int noOfRows, 
+                                 int noOfColumns,
+                                 InventoryItem[] items) {
+        if (noOfRows < 0 || noOfColumns < 0){
+            return null;
+        }
+        if (items == null || items.length < 1){
+            return null;
+        }
         Map map = new Map();
-        map.setRowCount(noOfRows);
+        map.setRowCount(noOfColumns);
         map.setColumnCount(noOfColumns);
+        Location[] locations = new Location[20];
+        locations[0] = new Location(noOfRows, noOfRows);
+        map.setLocations(locations);
+        RegularSceneType scene = new RegularSceneType();
+        scene = createScenes();
+        assignItemToScenes();
+        assignScenesToLocations();
         return map;
+
     }
 
     private static Actor[] createActors() {

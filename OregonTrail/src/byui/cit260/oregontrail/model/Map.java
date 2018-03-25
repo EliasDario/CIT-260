@@ -7,6 +7,7 @@ package byui.cit260.oregontrail.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -20,7 +21,16 @@ public class Map implements Serializable{
     private double rowCount;
     private double columnCount;
     private ArrayList<Game> games = new ArrayList<Game>();
-    private Location location;
+    private Location[] locations = new Location[20];
+
+
+    public Location[] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[] locations) {
+        this.locations = locations;
+    }
 
 
     public Map() {
@@ -58,29 +68,17 @@ public class Map implements Serializable{
     public void setGames(ArrayList<Game> games) {
         this.games = games;
     }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-   
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 83 * hash + Objects.hashCode(this.description);
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.rowCount) ^ (Double.doubleToLongBits(this.rowCount) >>> 32));
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.columnCount) ^ (Double.doubleToLongBits(this.columnCount) >>> 32));
+        int hash = 7;
+        hash = 23 * hash + Objects.hashCode(this.description);
+        hash = 23 * hash + (int) (Double.doubleToLongBits(this.rowCount) ^ (Double.doubleToLongBits(this.rowCount) >>> 32));
+        hash = 23 * hash + (int) (Double.doubleToLongBits(this.columnCount) ^ (Double.doubleToLongBits(this.columnCount) >>> 32));
+        hash = 23 * hash + Objects.hashCode(this.games);
+        hash = 23 * hash + Arrays.deepHashCode(this.locations);
         return hash;
     }
 
-    @Override
-    public String toString() {
-        return "Map{" + "description=" + description + ", rowCount=" + rowCount + ", columnCount=" + columnCount + '}';
-    }
-    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -102,7 +100,14 @@ public class Map implements Serializable{
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
+        if (!Objects.equals(this.games, other.games)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.locations, other.locations)) {
+            return false;
+        }
         return true;
     }
 
+    
 }

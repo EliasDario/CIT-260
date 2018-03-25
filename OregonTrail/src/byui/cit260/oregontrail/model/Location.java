@@ -21,6 +21,10 @@ public class Location implements Serializable{
     private Actor[] actor = new Actor[5];
     private RegularSceneType regularSceneType;
     
+    public Location(int noRow, int noCol) {
+        this.row = noRow;
+        this.column = noCol;
+    }
     public Location(Map map) {
         this.map = map;
     }
