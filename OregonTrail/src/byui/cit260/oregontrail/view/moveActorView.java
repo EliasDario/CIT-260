@@ -25,9 +25,7 @@ public class moveActorView extends View {
          return inputs;
     }
     
-    
-    @Override
-    public boolean doAction(String value) {
+    public boolean doAction(String [] value) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
