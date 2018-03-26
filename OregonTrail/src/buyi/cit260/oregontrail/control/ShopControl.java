@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Elías
+ * @author Lucia
  */
 public class ShopControl {
     public static int itemTotalPrice (ArrayList<Item> items){ 
