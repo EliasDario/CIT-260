@@ -25,9 +25,8 @@ public class OregonTrail {
     /**
      * @param args the command line arguments
      */
-    
-    private static Game currentGame = null;
-    private static Player player = null;
+    private static Game currentGame = new Game();
+    private static Player player = new Player();
     
     public static void main(String[] args) {
         try{

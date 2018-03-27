@@ -24,14 +24,15 @@ public class MapControl {
         }
 
         Map map = new Map();
-        map.setRowCount(noOfColumns);
+        map.setRowCount(noOfRows);
         map.setColumnCount(noOfColumns);
-        
+
         Location[][] locations = createLocations(noOfRows, noOfRows);
         map.setLocations(locations);
         
-        RegularSceneType[] scenes = new RegularSceneType[3];
+        RegularSceneType[] scenes;
         scenes = createScenes();
+        
         assignScenesToLocations(scenes, locations);
         return map;
     }
@@ -60,26 +61,26 @@ public class MapControl {
         
         //scene1
         RegularSceneType scene1 = new RegularSceneType();
-        scene1.setDescription(RegularSceneTypeEnum.Idaho.name());
+        scene1.setDescription("Idaho");
         scenes[RegularSceneTypeEnum.Idaho.ordinal()] = scene1;
         //scene2
         RegularSceneType scene2 = new RegularSceneType();
-        scene2.setDescription(RegularSceneTypeEnum.Oregon.name());
+        scene2.setDescription("Oregon");
         scenes[RegularSceneTypeEnum.Oregon.ordinal()] = scene2;
         //scene3
         RegularSceneType scene3 = new RegularSceneType();
-        scene1.setDescription(RegularSceneTypeEnum.Washton.name());
+        scene3.setDescription("Washton");
         scenes[RegularSceneTypeEnum.Washton.ordinal()] = scene3;
-        
         return scenes;
         
     }
 
-    private static void assignScenesToLocations(RegularSceneType[] scenes, 
-                                                Location[][] locations){
+    private static void assignScenesToLocations(RegularSceneType[] scenes, Location[][] locations){
         locations[0][0].setRegularSceneType(scenes[RegularSceneTypeEnum.Idaho.ordinal()]);
         locations[0][1].setRegularSceneType(scenes[RegularSceneTypeEnum.Oregon.ordinal()]);
         locations[0][2].setRegularSceneType(scenes[RegularSceneTypeEnum.Washton.ordinal()]);
-        
     }
-}
+}        
+//}catch (Exception e){
+//            System.out.println("Some error occured: " + e.getMessage());
+//        }

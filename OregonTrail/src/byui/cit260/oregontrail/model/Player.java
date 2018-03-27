@@ -17,7 +17,10 @@ public class Player implements Serializable{
     
     //Player attributes
     private String name;
-
+    private String wagonHealth;
+    private ArrayList<Game> game = new ArrayList<Game>();
+    private Actor[] actor;
+    
     public Player() {
         
     }
@@ -29,10 +32,7 @@ public class Player implements Serializable{
     public void setWagonHealth(String wagonHealth) {
         this.wagonHealth = wagonHealth;
     }
-    private String wagonHealth;
-    private ArrayList<Game> game = new ArrayList<Game>();
-    private Actor[] actor;
-    
+
 //Doing it in the constructor, the object instance require the name and occupation.
     public Player(String name) {
         this.name = name;

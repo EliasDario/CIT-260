@@ -5,14 +5,82 @@
  */
 package byui.cit260.oregontrail.view;
 
+import buyi.cit260.oregontrail.control.MapControl;
+import byui.cit260.oregontrail.model.Game;
+import byui.cit260.oregontrail.model.Location;
+import byui.cit260.oregontrail.model.RegularSceneTypeEnum;
+import oregontrail.OregonTrail;
+
 /**
  *
  * @author Amon Bernardo
  */
-public class GameMenuView {
+public class GameMenuView extends View{
 
-   public void displayGameMenuView() {
-       System.out.println("\ndisplayGameMenuView() method was called");
+    public GameMenuView() {
+        super("V - View map\n"
+            + "I - View list of items\n"
+            + "M - Move person to new location\n"
+            + "H - Help\n"
+            + "Q - Quit\n\n"
+            + "Choose some option above: ");
+    }
+
+    @Override
+    public boolean doAction(String value) {
+        switch(value.toUpperCase()){
+            case "V":
+                this.displayMap();
+                return true;
+            case "I":
+                this.viewInventory();
+                return true;
+            case "M":
+                this.movePerson();
+                return true;
+            case "Q":
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    private void displayMap() {
+        Game game = OregonTrail.getCurrentGame();
+        
+        Location[][] locations = MapControl.createMap(3, 3).getLocations();
+        System.out.println("Mapa of Oregon Trail Game");
+        for (int i = 0; i < locations[0].length; i++){
+            System.out.print(" | " + i + " ");
+            
+        }
+            System.out.print(" |");
+        for (int row = 0; row < locations.length; row++){
+            System.out.println("\n---------------------------------------\n");
+            System.out.print(row);
+            
+            for(int col = 0; col < locations[row].length; col++){
+                System.out.print("|");
+                Location location = locations[row][col];
+                if (location.getVisited() == true){
+                    String mapSymbol = RegularSceneTypeEnum.Idaho.name();
+                    System.out.print(" " + mapSymbol + " ");
+                }
+                else {
+                    System.out.print(" ?? ");
+                }
+            }
+            System.out.print("|");
+        }
+        System.out.println("\n---------------------------------------\n");
+    }
+
+    private void viewInventory() {
+        System.out.println("viewInventory");
+    }
+
+    private void movePerson() {
+        System.out.println("movePerson");
     }
     
 }

@@ -69,8 +69,8 @@ public class GameControl {
         if (player == null){
             throw new GameControlException("Player wasn't created, revise the input.");
         }
-        int noOfRows = 0;
-        int noOfColumns = 0;
+        int noOfRows = 3;
+        int noOfColumns = 3;
         //Game
         Game game = new Game();
         game.setPlayer(player);
@@ -91,6 +91,7 @@ public class GameControl {
             throw new GameControlException("The map wasn't created, revise the input.");
         }
         game.setMap(map);
+
     }
     
     public static void saveGame() {

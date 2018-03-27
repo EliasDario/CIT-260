@@ -92,7 +92,7 @@ public class MainMenuView extends View{
     private void startNewGame() throws GameControlException{
         GameControl.createNewGame(OregonTrail.getPlayer()); 
         GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.displayGameMenuView();
+        gameMenuView.display();
          
     }
 

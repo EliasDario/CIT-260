@@ -30,7 +30,7 @@ public class Location implements Serializable{
     }
 
     public Location() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     public int getRow() {
@@ -49,7 +49,7 @@ public class Location implements Serializable{
         this.column = column;
     }
 
-    public boolean isVisited() {
+    public boolean getVisited() {
         return visited;
     }
 
