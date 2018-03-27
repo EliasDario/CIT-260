@@ -21,16 +21,16 @@ public class Map implements Serializable{
     private double rowCount;
     private double columnCount;
     private ArrayList<Game> games = new ArrayList<Game>();
-    private Location[] locations = new Location[20];
+    private Location[][] locations = new Location[20][20];
 
-
-    public Location[] getLocations() {
+    public Location[][] getLocations() {
         return locations;
     }
 
-    public void setLocations(Location[] locations) {
+    public void setLocations(Location[][] locations) {
         this.locations = locations;
     }
+
 
 
     public Map() {

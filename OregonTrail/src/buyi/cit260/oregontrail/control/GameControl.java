@@ -86,7 +86,7 @@ public class GameControl {
         game.setInventoryItem(items);
         //Map
         Map map = new Map();
-        map = createMap(noOfRows, noOfColumns);
+        map = MapControl.createMap(noOfRows, noOfColumns);
         if (map == null){
             throw new GameControlException("The map wasn't created, revise the input.");
         }
@@ -132,29 +132,6 @@ public class GameControl {
         
         //returning items
         return items;
-
-    }
-
-    private static Map createMap(int noOfRows, 
-                                 int noOfColumns,
-                                 InventoryItem[] items) {
-        if (noOfRows < 0 || noOfColumns < 0){
-            return null;
-        }
-        if (items == null || items.length < 1){
-            return null;
-        }
-        Map map = new Map();
-        map.setRowCount(noOfColumns);
-        map.setColumnCount(noOfColumns);
-        Location[] locations = new Location[20];
-        locations[0] = new Location(noOfRows, noOfRows);
-        map.setLocations(locations);
-        RegularSceneType scene = new RegularSceneType();
-        scene = createScenes();
-        assignItemToScenes();
-        assignScenesToLocations();
-        return map;
 
     }
 

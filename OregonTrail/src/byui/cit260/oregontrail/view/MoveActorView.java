@@ -9,11 +9,11 @@ package byui.cit260.oregontrail.view;
  *
  * @author Amon Bernardo
  */
-public class moveActorView extends View {
+public class MoveActorView extends View {
 
     private static String getInputs;
     
-    public moveActorView(){
+    public MoveActorView(){
         super ("\n move an actor instructions");
     }    
 
@@ -25,7 +25,8 @@ public class moveActorView extends View {
          return inputs;
     }
     
-    public boolean doAction(String [] value) {
+    @Override
+    public boolean doAction(String value) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

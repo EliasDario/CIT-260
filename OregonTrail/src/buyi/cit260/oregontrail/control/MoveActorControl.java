@@ -16,7 +16,7 @@ import oregontrail.OregonTrail;
  *
  * @author Amon Bernardo
  */
-public class moveActorControl {
+public class MoveActorControl {
     public static Location moveActor(Actor actor, int row, int column) throws MapControlException{
         if (actor == null){
             throw new MapControlException();

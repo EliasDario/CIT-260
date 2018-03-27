@@ -29,6 +29,10 @@ public class Location implements Serializable{
         this.map = map;
     }
 
+    public Location() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getRow() {
         return row;
     }

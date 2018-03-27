@@ -35,6 +35,10 @@ public class RegularSceneType implements Serializable{
         this.animal = animal;
     }
 
+    public RegularSceneType() {
+        
+    }
+
     public String getDescription() {
         return description;
     }
