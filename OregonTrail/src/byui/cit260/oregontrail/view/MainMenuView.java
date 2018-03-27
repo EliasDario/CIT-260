@@ -6,7 +6,9 @@
 package byui.cit260.oregontrail.view;
 
 import buyi.cit260.oregontrail.control.GameControl;
+import buyi.cit260.oregontrail.control.PlayerControl;
 import buyi.cit260.oregontrail.exceptions.GameControlException;
+import buyi.cit260.oregontrail.exceptions.PlayerControlException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,6 +32,8 @@ public class MainMenuView extends View{
             + "G - Store\n"
             + "E - Exit\n"
             + "T - Quit Menu\n"
+            + "P - Test player control occupation (enter a number)\n"
+            + "F - Test player control"
             + "\n----------------------------------");
     }    
     @Override
@@ -61,6 +65,24 @@ public class MainMenuView extends View{
             case "T":
                 quitMenu();
                 return false;
+            case "P":
+                try{
+                    PlayerControl.chooseOccupation(1);
+                    //PlayerControl.chooseOccupation(Integer.parseInt(value));
+                    return true;
+                }
+                catch(NumberFormatException e){
+                    System.out.println(e.getMessage());
+                }
+            case "F":
+                try{
+//                    PlayerControl.changeWagonHealth("filling", "stead", "cold");
+                    PlayerControl.changeWagonHealth("hungry", "stead", "cold");
+                    return true;
+                }
+                catch (PlayerControlException e){
+                    System.out.println(e.getMessage());
+                }
             default : System.out.println("\nInvalid menu Item\n");
                   break;
         }

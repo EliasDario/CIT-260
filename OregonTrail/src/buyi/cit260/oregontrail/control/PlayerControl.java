@@ -5,17 +5,74 @@
  */
 package buyi.cit260.oregontrail.control;
 
+import buyi.cit260.oregontrail.exceptions.PlayerControlException;
+
 /**
  *
  * @author Elías
  */
 public class PlayerControl {
-    public static String changeWagonHealth( String ration, String pace, String weather) {
+    public static String changeWagonHealth( String ration, String pace, String weather) throws PlayerControlException{
      
     //variables declaration
     
-    String wagonHealth;
-    String errorMessage = "Please, enter the correct option";
+        String wagonHealth;
+
+        ration = ration.toLowerCase();
+        pace = pace.toLowerCase();
+        weather = weather.toLowerCase();
+
+        if (ration != "filling" && ration != "bare bones" &  ration != "meager"){
+            throw new PlayerControlException("Some internal error happened with ration, sorry");
+        } 
+        if (pace !="stead" && pace != "strenuous" && pace != "gruelling"){
+            throw new PlayerControlException("Some internal error happened with pace, sorry");
+        }
+        if (weather != "sunny" && weather != "clowdy" && weather != "cold"){
+             throw new PlayerControlException("Some internal error happened with weather, sorry");
+        }
+        //Algoritm        
+        if(ration == "filling"){
+            wagonHealth = "good";
+        }
+
+        else if(ration == "bare bones"){
+            wagonHealth = "bad";
+        }
+
+        else if(ration == "meager" && pace == "steady" && (weather == "sunny" || weather == "clowdy")){
+            wagonHealth = "good";
+        }
+        else{
+            wagonHealth = "bad";
+        }
+
+
+        return wagonHealth;
+    }
+    
+    //made by Lucia.
+    
+    public static String chooseOccupation(int playerOccupation) throws NumberFormatException{
+    
+        String banker = "$1600";
+        String carpenter = "$800";
+        String farmer = "$400";
+        
+        if ( playerOccupation == 1) { // occupation is banker
+            return new String("Banker start with $") + banker;
+        }
+        if ( playerOccupation == 2) { // occupation is carpenter
+            return new String("Carpenter start with $") + carpenter;
+        }
+        if ( playerOccupation == 3) { // occupation is farmer
+            return new String("Farmer start with $") + farmer; 
+        }
+        throw new NumberFormatException("Some internal error happened with player occupation number, sorry."); 
+
+    }
+}
+
     
         // testing inputs
 //        if (!(ration ==  "filling") || !(ration == "meager") || !(ration == "bare bones")){
@@ -26,44 +83,3 @@ public class PlayerControl {
 //        
 //       else if (!(weather == "rainy") || !(weather == "sunny")  || !(weather == "snowy") || !(weather == "clowdy")){
 //        return errorMessage; }
-        
-        //Algoritm
-        if(ration == "filling"){
-            wagonHealth = "good";
-        }
-        
-        else if(ration == "bare bones"){
-            wagonHealth = "bad";
-        }
-        
-        else if(ration == "meager" && pace == "steady" && (weather == "sunny" || weather == "clowdy")){
-            wagonHealth = "good";}
-            else{
-                    wagonHealth = "bad";
-                    }
-            return wagonHealth;
-    }
-    
-    //made by Lucia.
-    
-    public static String chooseOccupation(String playerOccupation){
-    
-        String banker = "$1600";
-        String carpenter = "$800";
-        String farmer = "$400";
-        String error = "Error, please enter one of the numbers of the options";
-        
-        if ( playerOccupation.equals("1")) { // occupation is banker
-            return banker;
-        }
-        if ( playerOccupation.equals("2")) { // occupation is carpenter
-            return carpenter;
-        }
-        if ( playerOccupation.equals("3")) { // occupation is farmer
-            return farmer;
-    }
-        if ( !playerOccupation.equals("1") || !playerOccupation.equals("2") || !playerOccupation.equals("3") ) { //return error
-            return error; }
-            return playerOccupation;
-    }
-}
