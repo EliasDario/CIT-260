@@ -15,7 +15,13 @@ import byui.cit260.oregontrail.view.GeneralStore;
 import byui.cit260.oregontrail.view.QuitMenuView;
 import byui.cit260.oregontrail.view.SimulateGamePointView;
 import byui.cit260.oregontrail.view.StartProgramView;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Amon Bernardo
@@ -28,6 +34,9 @@ public class OregonTrail {
     private static Game currentGame = new Game();
     private static Player player = new Player();
     
+    private static PrintWriter outFile = null;
+    private static BufferedReader inFile = null;
+        
     public static void main(String[] args) {
         try{
             // TODO code application logic here
@@ -40,14 +49,44 @@ public class OregonTrail {
     //        Item testItem1 = new Item(100);
     //
     //        System.out.println ("Result: " + ShopControl.itemTotalPrice(itemTest));
-
+            
+            OregonTrail.inFile = new BufferedReader(new InputStreamReader(System.in));
+            OregonTrail.outFile = new PrintWriter(System.out, true);
+            
             StartProgramView startProgramView = new StartProgramView();
             startProgramView.displayStartProgramView();
         }catch (Exception e){
             System.out.println("Some error occured: " + e.getMessage());
         }
+        finally{
+            try {
+                if (OregonTrail.inFile != null)
+                    OregonTrail.inFile.close();
+                if (OregonTrail.outFile != null)
+                    OregonTrail.outFile.close();
+            } catch (IOException ex) {
+                
+                System.out.println("Error to close the input or output");
+                return;
+            }
+        }
+    }
+    public static PrintWriter getOutFile() {
+        return outFile;
     }
 
+    public static void setOutFile(PrintWriter outFile) {
+        OregonTrail.outFile = outFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        OregonTrail.inFile = inFile;
+    }
+    
     public static Game getCurrentGame() {
         return currentGame;
     }

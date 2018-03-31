@@ -5,7 +5,13 @@
  */
 package byui.cit260.oregontrail.view;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import oregontrail.OregonTrail;
 
 /**
  *
@@ -14,6 +20,9 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
     
     protected String displayMessage;
+    
+    protected final BufferedReader keyboard = OregonTrail.getInFile();
+    protected final PrintWriter console = OregonTrail.getOutFile();
     
     public View(){
     }
@@ -36,7 +45,6 @@ public abstract class View implements ViewInterface {
     @Override
     public String getInput(){
 
-        Scanner keybord = new Scanner(System.in);
         boolean valid = false;
         String value = null;
 
@@ -46,8 +54,12 @@ public abstract class View implements ViewInterface {
             //prompt for the player's name
             System.out.println("\n" + this.displayMessage);
 
-            //get the value entered from the kerboyd
-            value = keybord.nextLine();
+            try {
+                //get the value entered from the kerboyd
+                value = this.keyboard.readLine();
+            } catch (IOException ex) {
+                System.out.println("Some problem happened to read the value");
+            }
             value = value.trim();
 
             if (value.length() < 1){ //blank value entered
