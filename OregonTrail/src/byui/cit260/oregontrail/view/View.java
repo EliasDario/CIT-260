@@ -32,10 +32,12 @@ public abstract class View implements ViewInterface {
     } 
     @Override
     public void display(){
+        String value;
         boolean done = false;
         do{
             //prompt for and get players name
-            String value = this.getInput();
+            this.console.println(this.displayMessage);
+            value = this.getInput();
             if (value.toUpperCase().equals("Q"))//user wants to quit
                 return;
             done = this.doAction(value);
@@ -52,7 +54,7 @@ public abstract class View implements ViewInterface {
         while(!valid) {
 
             //prompt for the player's name
-            System.out.println("\n" + this.displayMessage);
+            //this.console.println("\n" + this.displayMessage);
 
             try {
                 //get the value entered from the kerboyd
