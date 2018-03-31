@@ -68,7 +68,7 @@ public class GeneralStore extends View{
                 System.out.println("\n The total price of all items is " + ShopControl.itemTotalPrice(items)+"\n");
                 return true;
             default:
-                System.out.println("\n You choosed a wrong choice. Please, type again.");
+               ErrorView.display(this.getClass().getName(), "\n You choosed a wrong choice. Please, type again.");
                 return false;
         }
     }

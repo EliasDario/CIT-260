@@ -64,7 +64,7 @@ public class QuitMenuView {
             case "C":
                 return true;
             default: 
-                System.out.println("\nInvalid value. "
+                ErrorView.display(this.getClass().getName(), "\nInvalid value. "
                         + "\nPlease, choose one option above.\n");
                 return false;
         }

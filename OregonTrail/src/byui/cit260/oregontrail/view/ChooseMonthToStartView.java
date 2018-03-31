@@ -51,7 +51,7 @@ public class ChooseMonthToStartView extends View {
             case "C":
                 return true;
                 
-            default : System.out.println("\nInvalid choice, choose a valid option please\n");
+            default: ErrorView.display(this.getClass().getName(), "\nInvalid choice, choose a valid option, please.\n");
                   break;
         }
         return false;

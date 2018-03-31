@@ -48,7 +48,7 @@ public class ChooseOccupationView extends View{
             case "C":
                 return true;
                 
-            default : System.out.println("\nInvalid menu Item\n");
+            default : ErrorView.display(this.getClass().getName(), "\nInvalid menu Item\n");
                   break;
         }
         return false;

@@ -52,7 +52,7 @@ public class StartProgramView {
             userInputted = userInputted.trim(); //Trim off leading and trailing blanks from the value
 
             if (userInputted.length() < 1){
-               System.out.println("You must enter a non-blank value");
+               ErrorView.display(this.getClass().getName(), "\nYou must enter a non-blank value");
                continue;
             }
             inputs[0] = userInputted;
@@ -66,7 +66,7 @@ public class StartProgramView {
         Player player = new Player();
         player = GameControl.savePlayer(playerName);
         if (player == null){
-            System.out.println("Could not create the player.\n" +
+            ErrorView.display(this.getClass().getName(), "\nCould not create the player.\n" +
                     "You must enter a non-blank value");
             return false;
         }

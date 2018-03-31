@@ -83,7 +83,7 @@ public class MainMenuView extends View{
                 catch (PlayerControlException e){
                     System.out.println(e.getMessage());
                 }
-            default : System.out.println("\nInvalid menu Item\n");
+            default: ErrorView.display(this.getClass().getName(), "\nInvalid menu Item\n");
                   break;
         }
         return false;

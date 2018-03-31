@@ -35,7 +35,7 @@ class HelpMenuView extends View {
         return true;
         }
         else{
-        System.out.println("Please press \"C\" to continue to Main Menu\n"+
+        ErrorView.display(this.getClass().getName(), "Please press \"C\" to continue to Main Menu\n"+
                 "Advice: You should follow the instructions to make it to the Game\n");
         }
         

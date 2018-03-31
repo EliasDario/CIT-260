@@ -41,6 +41,7 @@ public class GameMenuView extends View{
             case "Q":
                 return true;
             default:
+                ErrorView.display(this.getClass().getName(), "You must enter a value.");
                 return false;
         }
     }

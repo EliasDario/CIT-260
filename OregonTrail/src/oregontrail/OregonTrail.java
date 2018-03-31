@@ -36,7 +36,9 @@ public class OregonTrail {
     
     private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
-        
+
+    private static PrintWriter logFile = null;
+    
     public static void main(String[] args) {
         try{
             // TODO code application logic here
@@ -50,8 +52,9 @@ public class OregonTrail {
     //
     //        System.out.println ("Result: " + ShopControl.itemTotalPrice(itemTest));
             
-            OregonTrail.inFile = new BufferedReader(new InputStreamReader(System.in));
-            OregonTrail.outFile = new PrintWriter(System.out, true);
+            inFile = new BufferedReader(new InputStreamReader(System.in));
+            outFile = new PrintWriter(System.out, true);
+            logFile = new PrintWriter("logFile.txt");
             
             StartProgramView startProgramView = new StartProgramView();
             startProgramView.displayStartProgramView();
@@ -60,10 +63,12 @@ public class OregonTrail {
         }
         finally{
             try {
-                if (OregonTrail.inFile != null)
-                    OregonTrail.inFile.close();
-                if (OregonTrail.outFile != null)
-                    OregonTrail.outFile.close();
+                if (inFile != null)
+                    inFile.close();
+                if (outFile != null)
+                    outFile.close();
+                if (logFile != null)
+                    logFile.close();
             } catch (IOException ex) {
                 
                 System.out.println("Error to close the input or output");
@@ -71,6 +76,15 @@ public class OregonTrail {
             }
         }
     }
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        OregonTrail.logFile = logFile;
+    }
+    
     public static PrintWriter getOutFile() {
         return outFile;
     }
