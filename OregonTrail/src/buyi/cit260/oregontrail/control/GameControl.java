@@ -15,6 +15,9 @@ import byui.cit260.oregontrail.model.Location;
 import byui.cit260.oregontrail.model.Map;
 import byui.cit260.oregontrail.model.Player;
 import byui.cit260.oregontrail.model.RegularSceneType;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import oregontrail.OregonTrail;
 
@@ -94,8 +97,19 @@ public class GameControl {
 
     }
     
-    public static void saveGame() {
-        System.out.println("\nsaveGame() called.\n");
+    public static void saveGame(Game game, String filePath) throws GameControlException {
+        if (game != null || filePath != null || filePath.length() < 1){
+            throw new GameControlException();
+        }
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filePath))){
+        
+        }
+        catch (IOException ex){
+        }
+//create a new FileOutputStream for the filePath
+//create a new ObjectOutputStream from the FileOutputStream
+//write the game object to the ObjectOutputStream
+//}
     }
 
     private static InventoryItem[] createItems() {
