@@ -84,4 +84,9 @@ public class GameMenuView extends View{
         System.out.println("movePerson");
     }
     
+    private void saveGame() {
+        SaveGameView saveGameView = new SaveGameView();
+        saveGameView.display();
+    }
+    
 }
