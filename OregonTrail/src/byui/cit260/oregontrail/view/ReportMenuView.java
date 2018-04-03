@@ -6,6 +6,7 @@
 package byui.cit260.oregontrail.view;
 
 import byui.cit260.oregontrail.model.Game;
+import byui.cit260.oregontrail.model.InventoryItem;
 import byui.cit260.oregontrail.model.Location;
 import byui.cit260.oregontrail.model.RegularSceneType;
 import java.io.FileInputStream;
@@ -88,7 +89,31 @@ class ReportMenuView extends View{
         }
     }
 
-    private void inventoryItemReport() {
+    private void inventoryItemReport() throws FileNotFoundException, IOException, ClassNotFoundException {
         System.out.println(this.getClass().getName() + " inventoryItemReport method called");
+         String filePath = getInventoryType()[0];
+        try (ObjectInputStream inp = new ObjectInputStream(new FileInputStream(filePath))){
+            Game game = (Game) inp.readObject();
+            InventoryItem[] inventoryItem = game.getInventoryItem();
+            console.println("\n\n --- Locations Report ---");
+            console.printf("%n%-20s%20s%20s", "Resource Scene", "    Items   ", "Class name");
+            console.printf("%n%-20s%20s%20s", "------------", "---------------", "-----------");
+           
+                    if (inventoryItem.getItemType() != null){
+                        ItemType items = new ItemType();
+                        items = inventoryItem.getItemType();
+                        console.printf("%n%-20s%20s%20s", items.getDescription(), "row: ", inventoryItem.getClass().getSimpleName());
+                    }
+                    else {return;}
+                    
+                }
+            }
+
+    private String[] getInventoryType() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-}
+            
+        }
+        
+    
+
