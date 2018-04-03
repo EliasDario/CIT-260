@@ -55,7 +55,15 @@ class ReportMenuView extends View{
         }
             
             case "I":
+        {
+            try {
                 inventoryItemReport();
+            } catch (IOException ex) {
+                Logger.getLogger(ReportMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ReportMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 return true;
             case "Q":
                  return true;
