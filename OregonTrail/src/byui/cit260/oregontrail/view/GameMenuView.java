@@ -23,7 +23,7 @@ public class GameMenuView extends View{
             + "M - Move person to new location\n"
             + "H - Help\n"
             + "S - Save the game\n"
-            + "Q - Quit\n\n"
+            + "E - Exit\n\n"
             + "Choose some option above: ");
     }
 
@@ -41,7 +41,9 @@ public class GameMenuView extends View{
                 return true;
             case "S":
                 this.saveGame();
-            case "Q":
+            case "E":
+                QuitMenuView quitMenuView = new QuitMenuView();
+                quitMenuView.displayQuitMenu();
                 return true;
             default:
                 ErrorView.display(this.getClass().getName(), "You must enter a value.");

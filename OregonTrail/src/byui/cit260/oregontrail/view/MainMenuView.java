@@ -32,7 +32,7 @@ public class MainMenuView extends View{
             + "G - Store\n"
             + "P - Test player control occupation (enter a number)\n"
             + "F - Test player control\n"
-            + "M - Report Menus"
+            + "M - Report Menus\n"
             + "E - Exit\n"
             + "T - Quit Menu\n"
             + "\n----------------------------------");
