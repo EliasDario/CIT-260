@@ -99,10 +99,9 @@ class ReportMenuView extends View{
             console.printf("%n%-20s%20s%20s", "Resource Scene", "    Items   ", "Class name");
             console.printf("%n%-20s%20s%20s", "------------", "---------------", "-----------");
            
-                    if (inventoryItem.getItemType() != null){
-                        ItemType items = new ItemType();
-                        items = inventoryItem.getItemType();
-                        console.printf("%n%-20s%20s%20s", items.getDescription(), "row: ", inventoryItem.getClass().getSimpleName());
+                    if (inventoryItem[0].getInventoryType() != null){
+                        InventoryItem items = inventoryItem[0];
+                        console.printf("%n%-20s%20s%20s", items.getInventoryType(), "row: ", inventoryItem.getClass().getSimpleName());
                     }
                     else {return;}
                     
