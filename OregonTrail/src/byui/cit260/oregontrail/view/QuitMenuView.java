@@ -5,8 +5,11 @@
  */
 package byui.cit260.oregontrail.view;
 
-import buyi.cit260.oregontrail.control.GameControl;
+import buyi.cit260.oregontrail.exceptions.GameControlException;
+import byui.cit260.oregontrail.control.GameControl;
+import java.io.IOException;
 import java.util.Scanner;
+import oregontrail.OregonTrail;
 
 /**
  *
@@ -51,12 +54,13 @@ public class QuitMenuView {
         return input[0];
     }
 
-    private boolean doActionQuitMenu(String[] input) {
+    private boolean doActionQuitMenu(String[] input){
         String[] menuItem = new String[1];
         menuItem[0] = input[0];
         menuItem[0] = menuItem[0].toUpperCase();
         switch (menuItem[0]){
-            case "1": GameControl.saveGame();
+            case "1": SaveGameView saveGameView = new SaveGameView();
+                        saveGameView.display();
                 return true;
             case "2": 
                 System.out.println("\nCheck back often!\n");

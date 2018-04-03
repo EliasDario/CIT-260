@@ -5,6 +5,7 @@
  */
 package buyi.cit260.oregontrail.control;
 
+import byui.cit260.oregontrail.control.GameControl;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

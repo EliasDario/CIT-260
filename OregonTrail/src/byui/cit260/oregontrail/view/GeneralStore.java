@@ -5,7 +5,7 @@
  */
 package byui.cit260.oregontrail.view;
 
-import buyi.cit260.oregontrail.control.ShopControl;
+import byui.cit260.oregontrail.control.ShopControl;
 import byui.cit260.oregontrail.model.Item;
 import java.util.ArrayList;
 

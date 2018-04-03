@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package oregontrail;
-import buyi.cit260.oregontrail.control.ShopControl;
+import byui.cit260.oregontrail.control.ShopControl;
 import byui.cit260.oregontrail.model.Actor;
 import byui.cit260.oregontrail.model.Game;
 import byui.cit260.oregontrail.model.Map;

@@ -5,11 +5,13 @@
  */
 package byui.cit260.oregontrail.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Amon Bernardo
  */
-public class Item {
+public class Item implements Serializable{
     private int price;
     private String description;
     private String type;

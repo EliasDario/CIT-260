@@ -5,7 +5,7 @@
  */
 package byui.cit260.oregontrail.view;
 
-import buyi.cit260.oregontrail.control.MapControl;
+import byui.cit260.oregontrail.control.MapControl;
 import byui.cit260.oregontrail.model.Game;
 import byui.cit260.oregontrail.model.Location;
 import byui.cit260.oregontrail.model.RegularSceneTypeEnum;
@@ -22,6 +22,7 @@ public class GameMenuView extends View{
             + "I - View list of items\n"
             + "M - Move person to new location\n"
             + "H - Help\n"
+            + "S - Save the game\n"
             + "Q - Quit\n\n"
             + "Choose some option above: ");
     }
@@ -38,6 +39,8 @@ public class GameMenuView extends View{
             case "M":
                 this.movePerson();
                 return true;
+            case "S":
+                this.saveGame();
             case "Q":
                 return true;
             default:

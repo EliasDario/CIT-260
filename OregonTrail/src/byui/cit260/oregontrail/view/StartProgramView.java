@@ -5,7 +5,7 @@
  */
 package byui.cit260.oregontrail.view;
 
-import buyi.cit260.oregontrail.control.GameControl;
+import byui.cit260.oregontrail.control.GameControl;
 import byui.cit260.oregontrail.model.Player;
 import java.util.Scanner;
 

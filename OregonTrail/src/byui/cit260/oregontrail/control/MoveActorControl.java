@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package buyi.cit260.oregontrail.control;
+package byui.cit260.oregontrail.control;
 
 import buyi.cit260.oregontrail.exceptions.MapControlException;
 import byui.cit260.oregontrail.model.Actor;

@@ -5,8 +5,8 @@
  */
 package byui.cit260.oregontrail.view;
 
-import buyi.cit260.oregontrail.control.GameControl;
-import buyi.cit260.oregontrail.control.PlayerControl;
+import byui.cit260.oregontrail.control.GameControl;
+import byui.cit260.oregontrail.control.PlayerControl;
 import buyi.cit260.oregontrail.exceptions.GameControlException;
 import buyi.cit260.oregontrail.exceptions.PlayerControlException;
 import java.util.Scanner;
@@ -30,10 +30,10 @@ public class MainMenuView extends View{
             + "A - Simulate game points\n"
             + "H - Get Help on how to play the game\n"
             + "G - Store\n"
+            + "P - Test player control occupation (enter a number)\n"
+            + "F - Test player control\n"
             + "E - Exit\n"
             + "T - Quit Menu\n"
-            + "P - Test player control occupation (enter a number)\n"
-            + "F - Test player control"
             + "\n----------------------------------");
     }    
     @Override
@@ -50,7 +50,7 @@ public class MainMenuView extends View{
                     return false;
                 }
             case "R": 
-                restartGame();
+                startSavedGame();
                 break;
             case "A":
                 simulatePoints();
@@ -60,11 +60,6 @@ public class MainMenuView extends View{
             case "G": 
                 store();
                 break;
-            case "E":
-                return true;
-            case "T":
-                quitMenu();
-                return false;
             case "P":
                 try{
                     PlayerControl.chooseOccupation(1);
@@ -76,13 +71,18 @@ public class MainMenuView extends View{
                 }
             case "F":
                 try{
-//                    PlayerControl.changeWagonHealth("filling", "stead", "cold");
+                    //PlayerControl.changeWagonHealth("filling", "stead", "cold");
                     PlayerControl.changeWagonHealth("hungry", "stead", "cold");
                     return true;
                 }
                 catch (PlayerControlException e){
                     System.out.println(e.getMessage());
                 }
+            case "E":
+                return true;
+            case "T":
+                quitMenu();
+                return false;
             default: ErrorView.display(this.getClass().getName(), "\nInvalid menu Item\n");
                   break;
         }
@@ -96,9 +96,9 @@ public class MainMenuView extends View{
          
     }
 
-    private void restartGame() {
-        StartExistingGameView startExistingGameView = new StartExistingGameView();
-        startExistingGameView.displayStartExistingGameView();
+    private void startSavedGame() {
+        StartSavedGameView startSavedGameView = new StartSavedGameView();
+        startSavedGameView.display();
     }
 
     private void getHelp() {

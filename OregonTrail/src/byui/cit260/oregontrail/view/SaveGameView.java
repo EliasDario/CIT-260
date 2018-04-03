@@ -5,6 +5,12 @@
  */
 package byui.cit260.oregontrail.view;
 
+import buyi.cit260.oregontrail.exceptions.GameControlException;
+import byui.cit260.oregontrail.control.GameControl;
+import byui.cit260.oregontrail.model.Game;
+import java.io.IOException;
+import oregontrail.OregonTrail;
+
 /**
  *
  * @author lucia
@@ -12,22 +18,35 @@ package byui.cit260.oregontrail.view;
 public class SaveGameView extends View {
  
     public SaveGameView() {
-        super("Save Your Game if you do not want to lose your progress.\n"
-            + "S - Save Game "
-            + "Q - Quit ");
+        super("---Save Game View---\n"
+                + "Type \'Q\' to quit menu or any other letter to continue\n");
     }
+    private String[] getInputs(){
+        String[] inputs = new String[1];
+        System.out.println("\nSave Your Game if you do not want to lose your progress.\n" +
+                            "Where do you want to save your game? \n");
+        String input1 = this.getInput();
+        inputs[0] = input1;
+        return inputs;
+    }
+    
     @Override
     public boolean doAction(String value) {
-        switch(value.toUpperCase()){
-            case "C":
-                this.saveGame();
-                return true;
-            case "Q":
-                return true;
-            default:
-                ErrorView.display(this.getClass().getName(), "You must choose an option.");
-                return false;
+        String filePath = getInputs()[0];
+        Game game = OregonTrail.getCurrentGame();
+        try{
+            GameControl.saveGame(game, filePath);
         }
+        catch (GameControlException e){
+            ErrorView.display("\n" + this.getClass().getName(), e.getMessage());
+            return false;
+        } 
+        catch (IOException ex){
+            ErrorView.display("\n" + this.getClass().getName(), ex.getMessage());
+            return false;
+        }
+        System.out.println("\nSuccess to save the game!");
+        return true;
     }
 
     private void saveGame() {
