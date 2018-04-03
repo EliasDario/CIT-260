@@ -69,16 +69,18 @@ class ReportMenuView extends View{
         try (ObjectInputStream inp = new ObjectInputStream(new FileInputStream(filePath))){
             Game game = (Game) inp.readObject();
             Location[][] locations = game.getMap().getLocations();
-            
+            console.println("\n\n --- Locations Report ---");
+            console.printf("%n%-20s%20s%20s", "Scenes names", "    Position   ", "Class name");
+            console.printf("%n%-20s%20s%20s", "------------", "---------------", "-----------");
             for (int row = 0; row < locations.length; row++){
                 for (int col = 0; col < locations[row].length; col++){
                     Location location = locations[row][col];
-                    if (location != null){
+                    if (location.getRegularSceneType() != null){
                         RegularSceneType scene = new RegularSceneType();
                         scene = location.getRegularSceneType();
-                        console.println(scene.getDescription());
+                        console.printf("%n%-20s%20s%20s", scene.getDescription(), "row: " + row + " column " + col, locations.getClass().getSimpleName());
                     }
-                    else {break;}
+                    else {return;}
                     
                 }
             }
