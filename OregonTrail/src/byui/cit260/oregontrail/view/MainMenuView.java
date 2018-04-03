@@ -32,6 +32,7 @@ public class MainMenuView extends View{
             + "G - Store\n"
             + "P - Test player control occupation (enter a number)\n"
             + "F - Test player control\n"
+            + "M - Report Menus"
             + "E - Exit\n"
             + "T - Quit Menu\n"
             + "\n----------------------------------");
@@ -78,6 +79,9 @@ public class MainMenuView extends View{
                 catch (PlayerControlException e){
                     System.out.println(e.getMessage());
                 }
+            case "M":
+                ReportMenuView reportMenuView = new ReportMenuView();
+                reportMenuView.display();
             case "E":
                 return true;
             case "T":
