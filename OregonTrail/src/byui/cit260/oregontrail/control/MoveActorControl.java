@@ -20,7 +20,7 @@ public class MoveActorControl {
 //    public static Location moveActor(Actor actor, int row, int column) throws MapControlException{
 //        if (actor == null){
 //            throw new MapControlException();
-//        }
+//        } ......
 //        Game game = OregonTrail.getCurrentGame();
 //        Map map = game.getMap();
 ////        Location locations = map.getLocation();
