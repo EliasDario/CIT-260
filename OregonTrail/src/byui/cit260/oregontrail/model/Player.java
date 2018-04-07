@@ -7,6 +7,7 @@ package byui.cit260.oregontrail.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -20,6 +21,8 @@ public class Player implements Serializable{
     private String wagonHealth;
     private ArrayList<Game> game = new ArrayList<Game>();
     private Actor[] actor;
+    private int currentRow = 0;
+    private int currentColumn = 0;
     
     public Player() {
         
@@ -64,21 +67,33 @@ public class Player implements Serializable{
     public void setActor(Actor[] actor) {
         this.actor = actor;
     }
-    
-    
-// Override Object properties by functions
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.name);
-        hash = 37 * hash + Objects.hashCode(this.game);
-        return hash;
+    public int getCurrentRow() {
+        return currentRow;
+    }
+
+    public void setCurrentRow(int currentRow) {
+        this.currentRow = currentRow;
+    }
+
+    public int getCurrentColumn() {
+        return currentColumn;
+    }
+
+    public void setCurrentColumn(int currentColumn) {
+        this.currentColumn = currentColumn;
     }
 
     @Override
-    public String toString() {
-        return "Player{" + "name=" + name + ", games=" + game + '}';
+    public int hashCode() {
+        int hash = 5;
+        hash = 59 * hash + Objects.hashCode(this.name);
+        hash = 59 * hash + Objects.hashCode(this.wagonHealth);
+        hash = 59 * hash + Objects.hashCode(this.game);
+        hash = 59 * hash + Arrays.deepHashCode(this.actor);
+        hash = 59 * hash + this.currentRow;
+        hash = 59 * hash + this.currentColumn;
+        return hash;
     }
 
     @Override
@@ -93,13 +108,30 @@ public class Player implements Serializable{
             return false;
         }
         final Player other = (Player) obj;
+        if (this.currentRow != other.currentRow) {
+            return false;
+        }
+        if (this.currentColumn != other.currentColumn) {
+            return false;
+        }
         if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.wagonHealth, other.wagonHealth)) {
             return false;
         }
         if (!Objects.equals(this.game, other.game)) {
             return false;
         }
+        if (!Arrays.deepEquals(this.actor, other.actor)) {
+            return false;
+        }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" + "name=" + name + ", wagonHealth=" + wagonHealth + ", game=" + game + ", actor=" + actor + ", currentRow=" + currentRow + ", currentColumn=" + currentColumn + '}';
     }
 
 

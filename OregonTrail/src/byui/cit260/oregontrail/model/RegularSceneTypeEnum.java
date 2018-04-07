@@ -12,5 +12,6 @@ package byui.cit260.oregontrail.model;
 public enum RegularSceneTypeEnum {
     Oregon,
     Idaho,
-    Washton;
+    Washton,
+    V;
 }

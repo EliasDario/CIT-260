@@ -69,7 +69,7 @@ public class GameMenuView extends View{
                 System.out.print("|");
                 Location location = locations[row][col];
                 if (location.getVisited() == true){
-                    String mapSymbol = RegularSceneTypeEnum.Idaho.name();
+                    String mapSymbol = RegularSceneTypeEnum.V.name();
                     System.out.print(" " + mapSymbol + " ");
                 }
                 else {
@@ -86,7 +86,8 @@ public class GameMenuView extends View{
     }
 
     private void movePerson() {
-        System.out.println("movePerson");
+        MoveActorView moveActorView = new MoveActorView();
+        moveActorView.display();
     }
     
     private void saveGame() {

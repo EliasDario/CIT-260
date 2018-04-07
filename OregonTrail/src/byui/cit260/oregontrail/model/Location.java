@@ -18,7 +18,7 @@ public class Location implements Serializable{
     private boolean visited;
     private int amountRemaining;
     private Map map;
-    private Actor[] actor = new Actor[5];
+    private Player player;
     private RegularSceneType regularSceneType;
     
     public Location(int noRow, int noCol) {
@@ -73,13 +73,6 @@ public class Location implements Serializable{
         this.map = map;
     }
 
-    public Actor[] getActor() {
-        return actor;
-    }
-
-    public void setActor(Actor[] actor) {
-        this.actor = actor;
-    }
 
     public RegularSceneType getRegularSceneType() {
         return regularSceneType;
@@ -87,6 +80,14 @@ public class Location implements Serializable{
 
     public void setRegularSceneType(RegularSceneType regularSceneType) {
         this.regularSceneType = regularSceneType;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
     @Override
@@ -97,7 +98,7 @@ public class Location implements Serializable{
         hash = 23 * hash + (this.visited ? 1 : 0);
         hash = 23 * hash + this.amountRemaining;
         hash = 23 * hash + Objects.hashCode(this.map);
-        hash = 23 * hash + Arrays.deepHashCode(this.actor);
+        hash = 23 * hash + Objects.hashCode(this.player);
         hash = 23 * hash + Objects.hashCode(this.regularSceneType);
         return hash;
     }
@@ -129,7 +130,7 @@ public class Location implements Serializable{
         if (!Objects.equals(this.map, other.map)) {
             return false;
         }
-        if (!Arrays.deepEquals(this.actor, other.actor)) {
+        if (!Objects.equals(this.player, other.player)) {
             return false;
         }
         if (!Objects.equals(this.regularSceneType, other.regularSceneType)) {
@@ -138,5 +139,9 @@ public class Location implements Serializable{
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", amountRemaining=" + amountRemaining + ", map=" + map + ", player=" + player + ", regularSceneType=" + regularSceneType + '}';
+    }
     
 }

@@ -18,11 +18,12 @@ public class Map implements Serializable{
     
     //class instance variable
     private String description;
-    private double rowCount;
-    private double columnCount;
+    private int rowCount;
+    private int columnCount;
     private ArrayList<Game> games = new ArrayList<Game>();
-    private Location[][] locations = new Location[20][20];
-
+    private Location[][] locations;
+    private Player player;
+    
     public Location[][] getLocations() {
         return locations;
     }
@@ -44,19 +45,19 @@ public class Map implements Serializable{
         this.description = description;
     }
 
-    public double getRowCount() {
+    public int getRowCount() {
         return rowCount;
     }
 
-    public void setRowCount(double rowCount) {
+    public void setRowCount(int rowCount) {
         this.rowCount = rowCount;
     }
 
-    public double getColumnCount() {
+    public int getColumnCount() {
         return columnCount;
     }
 
-    public void setColumnCount(double columnCount) {
+    public void setColumnCount(int columnCount) {
         this.columnCount = columnCount;
     }
 

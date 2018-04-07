@@ -22,7 +22,6 @@ public class Actor implements Serializable{
     private Player player;
     private Game game;
     private ArrayList<Wagon> wagon = new ArrayList<Wagon>();
-    private Location location;
 
     public Actor(){}
     public Actor(String name, String ocuppation) {
@@ -52,14 +51,6 @@ public class Actor implements Serializable{
 
     public void setWagon(ArrayList<Wagon> wagon) {
         this.wagon = wagon;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
     }
     
     public String getName() {
