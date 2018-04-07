@@ -10,5 +10,5 @@ package byui.cit260.oregontrail.control;
  * @author Elías
  */
 public class ActorControl {
-    
+    //,,
 }
