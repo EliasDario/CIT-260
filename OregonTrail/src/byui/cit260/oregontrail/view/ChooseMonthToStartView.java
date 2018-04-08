@@ -26,23 +26,23 @@ public class ChooseMonthToStartView extends View {
         switch (value) {
             case "1": 
                 System.out.println("***message describing March***");
-                break;
+                return true;
                 
             case "2": 
                 System.out.println("***message describing April***");
-                break;
+                return true;
                 
             case "3": 
                 System.out.println("***message describing May***");
-                break;
+                return true;
                 
             case "4": 
                 System.out.println("***message describing June***");
-                break;
+                return true;
                 
             case "5": 
                 System.out.println("***message describing July***");
-                break;
+                return true;
                 
             case "6":
                 System.out.println("***Message about how the months affects the Journey***\n");
@@ -52,7 +52,7 @@ public class ChooseMonthToStartView extends View {
                 return true;
                 
             default: ErrorView.display(this.getClass().getName(), "\nInvalid choice, choose a valid option, please.\n");
-                  break;
+                  return true;
         }
         return false;
     }
