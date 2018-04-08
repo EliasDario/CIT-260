@@ -47,12 +47,12 @@ public class ChooseMonthToStartView extends View {
             case "6":
                 System.out.println("***Message about how the months affects the Journey***\n");
                 System.out.println("Press \"C\"to continue");
-                break;
+                return true;
             case "C":
                 return true;
                 
             default: ErrorView.display(this.getClass().getName(), "\nInvalid choice, choose a valid option, please.\n");
-                  return true;
+                  break;
         }
         return false;
     }
