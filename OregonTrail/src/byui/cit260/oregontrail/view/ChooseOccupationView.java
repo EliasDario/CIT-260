@@ -28,15 +28,15 @@ public class ChooseOccupationView extends View{
         switch (value) {
             case "1": 
                 System.out.println("Congratulations! You are a banker and have $1600 to start your trip");
-                break;
+                return true;
                 
             case "2": 
                 System.out.println("Congratulations! You are a carpenter and have $800 to start your trip");
-                break;
+                return true;
                 
             case "3": 
                 System.out.println("Congratulations! You are a farmer and have $400 to start your trip");
-                break;
+                return true;
                 
             case "4":
                 System.out.println(" Traveling to Oregon isn't easy!\n"+
@@ -44,7 +44,7 @@ public class ChooseOccupationView extends View{
                         "However, the harder you have to try, the more points you deserve!\n"+
                         "Therefore,the farmer earns the greatest number o points and the banker earns the least.\n");
                 System.out.println("Press \"C\"to continue");
-                break;
+                return true;
             case "C":
                 return true;
                 
