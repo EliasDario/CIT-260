@@ -15,6 +15,7 @@ import byui.cit260.oregontrail.view.GeneralStore;
 import byui.cit260.oregontrail.view.QuitMenuView;
 import byui.cit260.oregontrail.view.SimulateGamePointView;
 import byui.cit260.oregontrail.view.StartProgramView;
+import byui.cit260.oregontrail.view.ChooseActorNameView;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

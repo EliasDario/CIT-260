@@ -193,9 +193,21 @@ public class GameControl {
             
             OregonTrail.setPlayer(game.getPlayer());
             return game;
+        } 
+    }
+    public static Actor[] setActorsName(String names[]) throws GameControlException{
+        Game game = OregonTrail.getCurrentGame();
+        Actor[] actors = game.getPlayer().getActor();
+        if (actors.length < 0 || actors == null ||
+                names.length < 0 || names.length > 20 || names == null){
+            throw new GameControlException();
         }
-
-        
+        else {
+            for (int i = 0; i < actors.length; i++){
+                actors[i].setName(names[i]);
+            }
+        }
+        return actors;
     }
     
 }

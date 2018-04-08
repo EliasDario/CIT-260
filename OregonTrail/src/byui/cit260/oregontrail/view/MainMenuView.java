@@ -95,6 +95,10 @@ public class MainMenuView extends View{
 
     private void startNewGame() throws GameControlException{
         GameControl.createNewGame(OregonTrail.getPlayer()); 
+        
+        ChooseActorNameView chooseActorNameView = new ChooseActorNameView();
+        chooseActorNameView.display();
+        
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.display();
          
